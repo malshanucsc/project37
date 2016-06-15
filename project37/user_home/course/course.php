@@ -54,22 +54,26 @@ body {
 </style>
 
 <script>
-function ifr(id1){
-//var e2 = document.getElementById(id2);
+function ifr(id1,id2){
+var e2 = document.getElementById(id2);
 var e = document.getElementById(id1);
 
-
+e2.innerHTML = 'Assignments';
  e.style.display = 'block';
 
 
 }
 
-function openNav() {
+function openNav(sp1) {
+	var e = document.getElementById(sp1);
+	e.style.display='none'
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
 }
 
-function closeNav() {
+function closeNav(sp1) {
+	var e = document.getElementById(sp1);
+	e.style.display='block'
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
 }
@@ -79,17 +83,19 @@ function closeNav() {
 <body>
 
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('sp1')">x</a>
   <a href="#">Modules</a>
   <a href="#">Quizzes</a>
-  <a onclick="ifr('ivf1');" href="../../assignment.php" target="iframe_b">Assignments</a>
+  <a onclick="ifr('ivf1','clbl1');" href="../../assignment.php" target="iframe_b">Assignments</a>
   <a href="#">Performance</a>
 </div>
 
 <div id="main">
  
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">Menu</span>
-<p>This is course page</p>
+  <span id ="sp1" style="font-size:20px;cursor:pointer" onclick="openNav('sp1')">Menu</span>
+
+  <label id="clbl1" name="lb1"></label>
+
 <hr>
 
 

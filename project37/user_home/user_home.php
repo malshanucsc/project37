@@ -4,17 +4,24 @@
 <meta http-equi="Content-Type" content="text/html; charset=utf-8"/>
 <title>R I T T I</title>
 <link rel="stylesheet" type="text/css" href="user_home_style/user_home.css">
+<style type="text/css">
+a:focus  {
+  background: black;
+  outline: 0;
+}
+</style>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
  
 <script type="text/javascript" > 
- /*
+ 
 
-function ifr(id1,id2){
-var e2 = document.getElementById(id2);
-var e = document.getElementById(id1);
-
+function ifr(id){
+var e = document.getElementById(id);
+e.innerHTML = 'Profile';
+//var e = document.getElementById(id1);
+/*
 if(e.style.display !="block"){
  e2.style.display = 'block';
   e2.style.display = 'none';
@@ -24,9 +31,9 @@ if(e.style.display !="block"){
 
 e.style.display = 'block';
 }
-
-}
 */
+}
+
   
     tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
     tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
@@ -74,7 +81,7 @@ e.style.display = 'block';
 
 </li>
 
-  <li class="active"><a onclick="ifr('ivf1','ivf2');" href="../profile.php" target="iframe_b">Profile</a></li>
+  <li class="active"><a onclick="ifr(clbl2);" href="../profile.php" target="iframe_b">Profile</a></li>
 
 <li><a onclick="ifr('ivf1',ivf2');"href="../course/course.html" target="iframe_a">Inbox</a></li>
   
@@ -85,7 +92,7 @@ e.style.display = 'block';
 
 
 
-
+  <label id="clbl2" name="lb1" target="iframe_b"></label>
 	
 
 
