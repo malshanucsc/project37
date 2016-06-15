@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db="groupproject_db1";
+$db="project_db2";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$db);

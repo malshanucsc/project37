@@ -106,7 +106,7 @@ if ($result->num_rows > 0) {
 	/*<?php$row['link']?>*/
 	?>
 
-	 <li ><a href="<?php echo $row['link']?>" target="iframe_c" ><?php echo $row['assignment_Title'] ?></a></li>
+	 <li ><a href="<?php echo $row['link']?>" target="iframe_c" ><?php echo $row['assignment_title'] ?></a></li>
 
 	<?php
       
