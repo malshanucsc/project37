@@ -1,0 +1,165 @@
+body {
+    font-family: "calibri", sans-serif;
+    background-color: #d8dfea !important;
+}
+.iframe{display:none;}
+a:link, a:visited {
+    background-color: #333;
+    color: white;
+  
+		padding-bottom: 15px;
+		padding-top: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	height:10px
+}
+
+a:focus  {
+  background: black;
+  outline: 0;
+}
+a:hover, a:active {
+    background-color: #3b5998 !important;
+}
+li a{
+  width: 100%;
+  text-align: center;
+  background-color:  #3b5998 !important;
+  border-radius: 25px;border: 2px solid white;   overflow:hidden;  padding-right: 2%;padding-left: 2%; padding-top: 2%;padding-bottom: 2%;
+}
+li a:hover{
+   background-color: #6d84b4 !important;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	  float: left;
+    background-color: #6d84b4 !important;
+	  
+}
+
+ul{
+    border-radius: 25px;border: 2px solid white;   overflow:hidden;  padding-right: 2%;padding-left: 2%; padding-top: 2% ; padding-bottom: 2%;
+}
+li{
+    border-radius: 25px;border: 2px solid white;   overflow:hidden;  padding-right: 2%;padding-left:2%; padding-top:2%;padding-bottom: 2%; 
+}
+ul form {
+   border-radius: 25px;border: 2px solid white;   overflow:hidden;  padding-right: 2%;padding-left: 2%; padding-top: 2%;padding-bottom: 2%;
+}
+ul li a{
+    text-align: center;
+
+}
+
+ul li {
+
+	float: none;
+	background: #333;
+    height:10px
+    color: white;
+    text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+  text-align: center;
+
+     border-radius: 25px;border: 2px solid white;   overflow:hidden;  padding-right: 2%;padding-left:2%; padding-top: 2%;padding-bottom: 2%;
+	
+}
+
+ul li:hover {
+    background-color: #3b5998!important;
+}
+
+
+.sidenav {
+    height: 40%;
+    width: 100%;
+   position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+ background-color: #6d84b4 !important;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 40px;
+     padding-bottom: 10px;
+    display:block;
+     border-style: double;
+      border-radius: 10px;
+     border: 2px double #5B9AB0; 
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    
+  width:100%;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+
+}
+
+.closebtn {
+    position: absolute;
+    margin-top:-25%;
+    font-size: 36px !important;
+    
+      text-align: right;
+}
+
+#main {
+    transition: margin-left 0.3s;
+    padding: 16px;
+
+    margin-left:250px;
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.overlay{
+  display:block;
+  float:left;
+}
+
+#mySidenav{width:15%;}
+
+
+
+
+#ifass{
+  
+}
+
+
+
+#msg{
+  background-color: #6d84b4; 
+  width:10%;
+   float:left;
+   margin-left:86.5%; 
+   margin-top:-2%;
+    position: fixed;  
+    border-radius: 25px;
+    border: 2px solid white;
+       overflow:auto;
+         padding-right: 10px;
+         padding-left: 10px;
+          padding-top: 10px;
+}
+
+

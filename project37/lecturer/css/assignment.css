@@ -1,0 +1,148 @@
+html, body, iframe { height: 70%; }
+#assignment li{
+      list-style:none;
+     
+    background:url(../../image/assignment.png) no-repeat 1% 50%;
+    padding-left:4%;
+    margin-left: 25%;
+    height:10%;
+    width: 35%;
+     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .5);
+    
+
+}
+
+#assignmentview table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 0%;
+}
+
+#assignmentview th, td {
+    text-align: left;
+    padding: 0.5%;
+}
+
+#assignmentview tr:nth-child(even){background-color: #f2f2f2}
+
+#assignmentview th {
+    background-color:  #3b5998;
+    color: white;
+}
+#assignment li a{
+    display: block;
+  text-decoration: none;
+}
+
+#assignment li:hover{
+  background-color: #4CAF50 !important;
+}
+
+#assignment li a:visited{
+  color: black!important;
+}
+
+
+
+
+
+#nosub {
+      list-style:none;
+     
+    background:url(../../image/incorrect.png) no-repeat 1% 50%;
+    padding-left:4%;
+    padding-top:0.5%;
+    padding-bottom:0.5%;
+    margin-left: 1%;
+
+
+
+    
+
+}
+
+
+
+#yessub {
+      list-style:none;
+     
+    background:url(../../image/correct.png) no-repeat 1% 50%;
+    padding-left:4%;
+        padding-top:0.5%;
+    padding-bottom:0.5%;
+    margin-left: 1%;
+
+
+
+    
+
+}
+
+
+#submissions table{
+  margin-left: 5%;
+}
+
+
+
+
+
+
+
+#breadcrumb li{
+  float:left;
+  list-style: none;
+ }
+#breadcrumb a{
+  display: block;
+}
+
+#breadcrumb li:hover{
+  background-color: #4CAF50 !important;
+}
+
+
+#breadcrumb li:hover{
+  background-color: #4CAF50 !important;
+}
+#breadcrumb a:hover,a:hover li{
+  background-color: #4CAF50 !important;
+}
+#breadcrumb li a{
+  display: block;
+   text-decoration: none;
+
+}
+#breadcrumb{
+  float: left;
+}
+
+
+
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: 0%;
+    
+}
+
+th, td {
+    text-align: left;
+    padding: 0.5%;
+    
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color:  #3b5998;
+    color: white;
+
+}
+tr{
+  border: 1px solid black;
+}
+}
+
+}

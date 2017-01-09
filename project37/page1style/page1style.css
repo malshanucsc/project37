@@ -1,24 +1,32 @@
+
+body {
+    font-family: "calibri", sans-serif;
+
+    background-color: #d8dfea !important;
+}
 iframe{display:none;}
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-	
+    background-color: #3b5998 !important;
+    font-weight: bold;
 }
-
 li {
     float: left;
 	width:18%;
-	
+}
+#clock{
+    width:22%;
+    margin-top: -3%;
+    margin-left: 81%;
 }
 #clockbox{
 font-weight: bold;
  margin-top: 12px;
     padding: 0;
 	color:white;
-
 }
 li a, .dropbtn {
     display: inline-block;
@@ -26,80 +34,86 @@ li a, .dropbtn {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-	
 }
-
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: white;
+     background-color: white !important;
 	color:black;
 }
-
 li.dropdown {
     display: inline-block;
-	width:25%;
+	width:18%;
 }
 #ivf2{
 display:block;
 
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	width:25%;
+	width:16%;
 	z-index:1;
 	opacity:0.8;
 }
-
 .dropdown-content a {
     font-weight: bold;
 	color: black;
-    padding: 12px 16px;
+/*    padding: 12px 16px;*/
     text-decoration: none;
     display: block;
     text-align: left;
 	
 }
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-
+.dropdown-content a:hover {background-color: black;}
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 .formlog {
     border-style: double;
     border-width: thick;
 	border-color: grey;
 	height:50% ;
 }
-
 .slider {
-
 width:70%;
-height:330px;
+height:50%;
 overflow:hidden;
-margin-top:2px auto;
 
 background-repeat:no-repeat;
 background-position:center;
-
 }
 .slider img{
-
-width:800px;
-height:290px;
+width:100%;
+height:100%;
+overflow:hidden;
 display:none;
 }
 
-
 .hr{color:white}
-
-.colform { float:left; width:20%;height:45%; font-family:calibri;background-color:lightblue;}
+.colform { float:left; width:20%;height:45%; font-family:calibri;background-color:#dfe3ee;}
 .font{font-family:calibri; }
 .form1{margin-top:0%;height:30%;}
 .pmarge{margin-top:3%;margin-left:10%;height:10%;margin-bottom:10%;}
+
+
+#message table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 0%;
+}
+
+#message th, td {
+    text-align: left;
+    padding: 0.5%;
+}
+
+#message tr:nth-child(even){background-color: #f2f2f2}
+
+#message th {
+    background-color:  #3b5998;
+    color: white;
+}
+
+

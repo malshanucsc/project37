@@ -1,0 +1,89 @@
+html, body, iframe { height: 70%; }
+
+
+
+#assignment li{
+      list-style:none;
+
+    background:url(../../image/assignment.png) no-repeat 1% 50%;
+    padding-left:10%;
+    margin-left: 0%;
+    height:10%;
+    width: 35%;
+     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .5);
+     text-decoration: none;
+    
+
+}
+#assignment li a{
+  display: block;
+  text-decoration: none;
+}
+#assignment li a:visited{
+  color: black!important;
+}
+#assignment li:hover{
+  background-color: #4CAF50 !important;
+}
+
+
+#module li{
+      list-style:none;
+
+    background:url(../../image/lesson.png) no-repeat 1% 50%;
+    padding-left:10%;
+    margin-left: 0%;
+    height:10%;
+    width: 35%;
+     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .5);
+    text-decoration: none;
+
+}
+#module li a{
+  display: block;
+  text-decoration: none;
+}
+#module li:hover{
+  background-color: #4CAF50 !important;
+}
+#module li a:visited{
+  color: black!important;
+}
+
+#course{
+    margin-top: 3%;
+}
+
+
+
+
+#breadcrumb li{
+  float:left;
+  list-style: none;
+ }
+#breadcrumb a{
+  display: block;
+}
+
+#breadcrumb li:hover{
+  background-color: #4CAF50 !important;
+}
+
+
+#breadcrumb li:hover{
+  background-color: #4CAF50 !important;
+}
+#breadcrumb a:hover,a:hover li{
+  background-color: #4CAF50 !important;
+}
+#breadcrumb li a{
+  display: block;
+   text-decoration: none;
+
+}
+#breadcrumb{
+  float: left;
+}
+
+
+

@@ -1,0 +1,91 @@
+body {
+    font-family: "calibri", sans-serif;
+}
+#inbox ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color:#f3f9fe !important;
+
+    margin-left: 0%;
+}
+#inbox li{
+        background:url(../../image/message.png) no-repeat 1% 50% !important;
+       
+        padding-left: 5%;
+
+}
+#inbox li:hover,a:hover{
+  background-color: #4CAF50 !important;
+
+}
+#inbox li{
+  height: 30px;
+  padding-top: 10px;
+}
+#inbox li a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+#inbox li a:visited{
+  color: black!important;
+}
+
+
+#message{
+  width:100%;
+}
+
+#message table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 0%;
+}
+
+#message th, td {
+    text-align: left;
+    padding: 0.5%;
+}
+
+#message tr:nth-child(even){background-color: #f2f2f2}
+
+#message th {
+    background-color: #229954;
+    color: white;
+    font-weight: normal;
+   
+}
+
+
+
+
+#breadcrumb li{
+  float:left;
+  list-style: none;
+ }
+#breadcrumb a{
+  display: block;
+}
+
+#breadcrumb li:hover{
+  background-color: #4CAF50 !important;
+}
+
+
+#breadcrumb li:hover{
+  background-color: #4CAF50 !important;
+}
+#breadcrumb a:hover,a:hover li{
+  background-color: #4CAF50 !important;
+}
+#breadcrumb li a{
+  display: block;
+   text-decoration: none;
+
+}
+#breadcrumb{
+  float: left;
+}

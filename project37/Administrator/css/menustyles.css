@@ -1,0 +1,99 @@
+
+body {
+    font-family: "calibri", sans-serif;
+    background-color: white !important;
+    font-size: 12pt;
+}
+
+
+#def li{
+    list-style: none;
+    width: 80%;
+    
+}
+
+
+
+#def li a{
+    display: block;
+    text-decoration: none;
+    color: #417217;
+    font-size: 1.1em;
+
+}
+
+#def{
+  padding-left: 1%;
+  padding-bottom: 1%;
+
+}
+
+
+#breadcrumb li{
+  float:left;
+  list-style: none;
+ }
+#breadcrumb a{
+  display: block;
+}
+
+#breadcrumb li:hover{
+  background-color: #4CAF50 !important;
+}
+
+
+#breadcrumb li:hover{
+  background-color: #4CAF50 !important;
+}
+#breadcrumb a:hover,a:hover li{
+  background-color: #4CAF50 !important;
+}
+#breadcrumb li a{
+  display: block;
+   text-decoration: none;
+
+}
+#breadcrumb{
+  float: left;
+}
+
+
+
+
+
+
+
+
+
+/*student { float:left; width:80%;height:45%; font-family:calibri;}
+
+#student  ul {
+ 
+    padding: 20px;
+
+}
+#student ul li {
+  float:bottom;
+    background: lightblue;
+    margin: 5px;
+        font-family:calibri;
+        list-style: none;
+        
+} 
+
+
+#student  a:focus  {
+  background: #205;
+  outline: 0;
+}
+#student  li:hover, li:active {
+    background-color: lightblue;
+}
+#student ul li a{
+  text-decoration: none;
+  color:black;
+  display:block;
+
+}
+
+*/

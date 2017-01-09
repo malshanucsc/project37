@@ -1,0 +1,39 @@
+    
+body {
+    font-family: "calibri", sans-serif;
+}
+
+#msg li{
+        background:url(../../image/message.png) no-repeat 1% 50% !important;
+  height: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 65%;
+  display:block;
+        padding-left: 35%;
+            list-style-type: none;
+
+
+}
+/*#msg li:hover,a:hover{
+  background-color: #4CAF50 !important;
+
+}*/
+#msg li{
+
+}
+#msg li a{
+  display:block;
+    width:90%;
+    text-decoration: none;
+    color: black;
+}
+#msg{
+       background-color:#f3f9fe !important;
+    border:solid 1px #E5E4E2; border-radius: 5px;
+
+    padding-left:1%;
+    padding-right:1%;
+    
+}
+

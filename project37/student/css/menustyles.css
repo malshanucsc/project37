@@ -1,0 +1,86 @@
+
+body {
+    font-family: "calibri", sans-serif;
+    background-color: white !important;
+}
+
+#student li a{
+  text-decoration: none;
+  color:black;
+  display:block;
+
+}
+
+
+#def li{
+
+    list-style: none;
+    width: 80%;
+     
+}
+
+
+
+#def li a{
+display: block;
+text-decoration: none;
+padding-left: 10%;
+color: #417217;
+
+}
+
+
+#def{
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-right: 3%;
+  text-align: center;
+  margin-left: 1%;
+
+}
+
+
+#breadcrumb{
+  }
+
+#breadcrumb li{
+  width:10%;  
+  list-style: none;
+  
+ }
+#breadcrumb a{
+  display: block;
+}
+
+#breadcrumb li:hover{
+  background-color: yellowgreen !important;
+}
+
+
+#breadcrumb li:hover{
+  background-color: yellowgreen !important;
+}
+#breadcrumb a:hover,a:hover li{
+  background-color: yellowgreen !important;
+}
+#breadcrumb li a{
+
+   text-decoration: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

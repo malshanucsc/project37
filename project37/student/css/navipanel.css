@@ -1,0 +1,100 @@
+
+
+
+.closebtn {
+    position: absolute;
+    margin-top:-25%;
+    margin-left: 2%;
+    height: 100%;
+    
+}
+
+
+.sidenav {
+
+    width: 100%;
+   position: fixed;
+    z-index: 1;
+    top: 36%;
+    left: 0%;
+   background-color: #6d84b4 !important;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 3%;
+     padding-bottom: 0%;
+    display:block;
+     border-style: double;
+      border-radius: 5px;
+
+
+
+       
+  height:55%; margin-left:1%;overflow-y: hidden;text-align: left !important;
+}
+.sidenav li{
+  
+}
+
+.sidenav a {
+    text-decoration: none;
+    font-size: 100%;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    text-align: left !important;    
+  width:100%;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .5);
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    
+    background-color: #3b5998;
+
+}
+.sidenav > .closebtn:hover{
+    
+ box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .5);
+
+}
+.sidenav > .closebtn{
+   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .5);
+}
+
+
+
+
+
+
+#main {
+    transition: margin-left 0.3s;
+    
+
+    margin-left:250px;
+
+}
+
+#menu{
+
+}
+#mySidenav{
+
+  width:13%;
+  
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15%;}
+  .sidenav a {font-size: 18%;}
+}
+
+.overlay{
+  display:block;
+  float:left;
+}
+
+
+
+
+
+
