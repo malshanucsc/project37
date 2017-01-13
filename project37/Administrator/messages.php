@@ -24,7 +24,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link rel="stylesheet" type="text/css" href="css/inbox.css">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 <style>
 
 body{
@@ -41,29 +41,30 @@ body{
 }
 
 </style>
-<script>
-window.onload = function() {
-  timer();
-};
 
-</script>
 </head>
 
-<body onload=""   >
+<body>
 
- <div id=upbanner style="float:bottom;position: relative;width:100%; border:solid 1px #E5E4E2; border-radius: 5px;">
+ <div id=upbanner >
 <?php
  include("user_home.php");
 ?>     
 </div>
 
+<div id=boxbody>
+  
 
-<div id=breadcrumb style="float:bottom;position: relative;margin-top:0.5%;width:100%; border:solid 1px #E5E4E2; border-radius: 5px;">
 
+<div id=breadcrumb >
+
+<ul>
+        <li><a href="admin.php">Home</a></li>
+        <li><a href="sent_messages.php">Messaging</a></li>
+        <li><a href="">Message</a></li>
+  
+</ul>
    
-        <li><a href="user_courses.php">My courses  > &nbsp </a></li>
-        <li><a href="inbox.php"> Inbox > &nbsp </a></li>
-        <li><a href="">  Message &nbsp </a></li>
     
 
 </div>
@@ -114,6 +115,9 @@ window.onload = function() {
 
 
 
+
+
+</div>
 
 
 </body>

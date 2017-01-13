@@ -1,6 +1,6 @@
-<link rel="stylesheet" type="text/css" href="css/modulestyle.css">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 <style type="text/css">
-  
+/*  
     .white_content {
         display: none;
         position: fixed;
@@ -79,8 +79,8 @@ label{
   font-size: 14px;
   color: #1E8449;
   font-weight: bold;
-}
-
+}*/
+/*
 input[type="text"]{
   width: 90%;
 }
@@ -90,7 +90,7 @@ h4{
   text-decoration: underline;
 }
 
-
+*/
 
 
 
@@ -199,7 +199,7 @@ function checkSizemodule(){
 
 
 
-
+<div id="content-list">
 
 <?php
 
@@ -228,7 +228,7 @@ if ($result->num_rows > 0) {
           <?php 
          // if($row2['link']!=''){
             ?>
-            <li id="modulename"><h3><a href= "moduleviewmain.php?moduleID=<?php echo $mo_ID; ?> " target="_parent" > <?php echo $row2['module_Title'] ;?></h3>
+            <li><h3><a href= "lecturer_Module/moduleviewmain.php?moduleID=<?php echo $mo_ID; ?> " target="_parent" > <?php echo $row2['module_Title'] ;?></a></h3>
               
 
                <?php
@@ -236,19 +236,16 @@ if ($result->num_rows > 0) {
             
             if($pub=='0'){
               
-               ?><h4 style="color:red;"> <?php echo "Not published";?></h4>
+               ?><h4> <?php echo "Not published";?></h4>
 
           <?php                                
             }else{
-              ?><h4 style="color:red;"> <?php echo "Published";?></h4>
+              ?><h4> <?php echo "Published";?></h4>
 
           <?php
             }
             ?>
-            </a>
-           
-
-            </li>
+           </li>
 
             <br>
             <?php
@@ -267,9 +264,8 @@ if ($result->num_rows > 0) {
   }
 ?>
 
+</div>
 <div id="fade" class="black_overlay"></div>
-
-
 <div id="light" class="white_content">
 <?php
 
@@ -297,7 +293,7 @@ include '../db.php';
   $conn->close();
 ?>
     <script>
-window.location.href = "modules.php";
+window.location.href = "lecturer_Module/modules.php";
 </script>
 <?php
 
@@ -388,9 +384,10 @@ if($_FILES["file"]["error"] >0){
 
 <br>
 
-<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Cancel</a></div>
 
+<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Cancel</a>
 
+</div>
 
 <button type="button"  class="button btn-1" style="margin-left:20%;" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" ><span>Add Lesson</span></button>
 <br>

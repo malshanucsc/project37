@@ -1,4 +1,4 @@
-.breadcrumb{
+/*.breadcrumb{
   display: inline-block;
  margin-left:5%; margin-top:3%; border: none !important;
   }
@@ -13,7 +13,7 @@ body {
 
 .iframe{display:none;}
 
-.coursepage a:link{
+/*.coursepage a:link{
     background-color:  #6d84b4;
     color: white;
   
@@ -25,8 +25,8 @@ body {
     text-decoration: none;
     display: inline-block;
     
-}
-.coursepage a:focus  {
+}*/
+/*.coursepage a:focus  {
   background: #3b5998 !important;
   outline: 0;
 }
@@ -149,3 +149,4 @@ border-radius: 8px;border: 2px solid white;   overflow:hidden;  padding-right: 2
 
 
 
+*/*/

@@ -67,7 +67,7 @@
 
 <!-- </div>
 <div id=quiz style="width:58%;margin-left:10%;float:left;background-color:#f3f9fe !important;margin-top:3%;"> -->
-
+<div id="content-list">
  <h3>Currently completed lessons</h3> 
 <?php
 
@@ -91,7 +91,7 @@ $result3 = $conn->query($sql3);
 if ($result3->num_rows > 0) {
     
     
-     ?> <ul>
+     ?> 
      <?php
    
 
@@ -104,12 +104,12 @@ if ($result3->num_rows > 0) {
     
     
 
-     <li ><a href="quizmainview.php?modID=<?php echo $_SESSION['mod'] ?>" ><?php echo $row3['module_Title'] ?></a></li>
+     <li ><a href="lecturer_Quiz/quizmainview.php?modID=<?php echo $_SESSION['mod'] ?>" ><?php echo $row3['module_Title'] ?></a></li>
 <br>
     <?php
       
     }
-    ?>  </ul>
+    ?>  
     <?php
 }
 else{
@@ -120,7 +120,7 @@ else{
 ?>
 
 
-
+</div>
 
 
 

@@ -1,6 +1,6 @@
-<link rel="stylesheet" type="text/css" href="css/assignment.css">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 <style type="text/css">
-  
+/*  
     .white_content {
         display: none;
         position: fixed;
@@ -80,14 +80,13 @@ label{
   color: #1E8449;
   font-weight: bold;
 }
-
+*/
 
 </style>
 
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
   <script>
@@ -209,7 +208,7 @@ function checktextareaassignment(){
 
 
 
-
+<div id="content-list">
 
 <h1>&nbsp&nbsp&nbsp&nbsp&nbsp Assignments</h1>
 
@@ -240,7 +239,7 @@ if ($result->num_rows > 0) {
           <?php 
          // if($row2['link']!=''){
             ?>
-            <li id="assignmentname"><h3><a href= "assignmentviewmain.php?asid=<?php echo $AS_ID; ?> " target="_parent" > <?php echo $row2['assignment_title'] ;?></h3>
+            <li><h3><a href= "lecturer_Assignment/assignmentviewmain.php?asid=<?php echo $AS_ID; ?> " > <?php echo $row2['assignment_title'] ;?></a></h3>
               
 
                <?php
@@ -248,20 +247,16 @@ if ($result->num_rows > 0) {
             
             if($pub=='0'){
               
-               ?><h4 style="color:red;"> <?php echo "Not published";?></h4>
+               ?><h4> <?php echo "Not published";?></h4>
 
           <?php                                
             }else{
-              ?><h4 style="color:red;"> <?php echo "Published";?></h4>
+              ?><h4> <?php echo "Published";?></h4>
 
           <?php
             }
             ?>
-            </a>
-           
-
             </li>
-
             <br>
             <?php
           //}
@@ -275,11 +270,11 @@ if ($result->num_rows > 0) {
       }
     }
   }else{
-    ?> <h3 style="margin-left:20%; color:red; "><?php echo"No assignments published";?></h3><br><?php
+    ?> <h3><?php echo"No assignments published";?></h3><br><?php
   }
 ?>
 
-
+</div>
 
 
 <div id="fade2" class="black_overlay"></div>
@@ -448,7 +443,7 @@ function insertassign($idexist,$title,$guide,$date,$hr,$mi,$u_Id,$C_Id,$link,$ba
 $conn->close();
 ?>
 <script>
-window.location.href = "assignment.php";
+window.location.href = "lecturer_Assignment/assignment.php";
 </script>
 <?php
 

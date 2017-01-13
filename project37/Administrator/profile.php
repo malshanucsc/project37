@@ -1,26 +1,27 @@
+ <?php
+    session_start();
+  
+        $now = time(); // Checking the time now when home page starts.
+
+        if (time() - $_SESSION['start'] > 10000) {
+            session_destroy();
+            echo "Your session has expired! <a href='../login.php'>Login here</a>";
+        }
+        else{
+            $_SESSION['start']=time();
+          ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equi="Content-Type" content="text/html; charset=utf-8"/>
 <title>R I T T I</title>
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 <style type="text/css">
 
-body {
-    font-family: "calibri", sans-serif;
-}
 
-.formlog { float:left; width:60%;height:45%; margin-left:20% !important ; font-family:calibri;}
 
-ul {
-    background: #3b5998;
-    padding: 20px;
 
-}
-ul li {
-    background: lightblue;
-    margin: 5px;
-        font-family:calibri;
-}	
 </style>
 
 
@@ -34,14 +35,68 @@ function change(){
    
 }
 
+window.onload = function() {
+  timer();
+};
 
 </script>
 <link rel="icon" href="../image/rittilogo.png" type="image/gif" sizes="16x16">
 </head>
-<body style="background-color: #d8dfea; ">
+<body style="background-color: white; ">
 
-<iframe width="100%" height="250px" frameborder="0" src="user_home.php"  ></iframe>
- 
+
+ <div id=upbanner >
+<?php
+ include("user_home.php");
+?>     
+</div>
+
+<div id=boxbody >
+
+
+
+
+
+<?php
+   
+
+if (isset($_SESSION['coursename'])  && isset($_SESSION['Course_ID']) && isset($_SESSION['batch_No'])   )
+{
+      $cname= $_SESSION['coursename'];
+    $courseID=$_SESSION['Course_ID'];
+    $batch_No=$_SESSION['batch_No'];
+    ?>
+
+<div id="breadcrumb">
+   
+        <li><a href="user_courses.php">My courses  > &nbsp </a></li>
+        <li><a href="course.php?courseIDpass=<?php echo $courseID; ?>&B_No=<?php echo $batch_No ?> "> <?php echo $cname; ?> > &nbsp </a></li>
+        <li><a href=""> Profile &nbsp </a></li>
+    
+
+</div>
+<?php
+
+}else{
+
+    ?>
+<div id="breadcrumb">
+   
+        <li><a href="user_courses.php">My courses  > &nbsp </a></li>
+        <li><a href=""> Profile &nbsp </a></li>
+    
+
+</div>
+
+<?php
+
+
+}
+
+?>
+  
+<div id= "profile">
+
 
 <?php
 include '../db.php';
@@ -74,7 +129,7 @@ if(isset($_POST['name'])){
   
 }
 
-session_start();
+
 
 $u_Idforprofile=$_SESSION['username'];
 $sql = "SELECT * FROM user WHERE user_Id='$u_Idforprofile'";
@@ -92,19 +147,37 @@ $result3 = $conn->query($sql3);
 if ($result->num_rows > 0 && $result2->num_rows > 0) {
 ?>
     <form class="formlog" action="" method="post" style="margin-left:140px;">
-	<ul>
-	
-	<li>User Id :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="u_id" value="<?php echo $row['user_Id']?>" readonly></li> <br>
-    <li>Password :&nbsp&nbsp&nbsp&nbsp&nbsp  <input  type="password" name="pwd" id="pwd" value="<?php echo $row['password']?>" readonly></li> <br>
-	<li>Name :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="name" value="<?php echo $row['name']?>" readonly></li> <br>
-	<li>Contact :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" id="cnc" name="contact_No" value="<?php echo $row['contact_No']?>"readonly ></li> <br>
-	<li>Address :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="adds" name="address" value="<?php echo $row['address']?>"readonly></li>
-    <hr><br>
-    <li>Branch Name :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="Branch_name" value="<?php echo $row2['branch_Name']?>" readonly ></li> <br>
-
-    <li>Branch Address :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <input type="text" name="branch_address" value="<?php echo $row2['address']?>" readonly></li> 
-    <hr><br>
-    <li>Registered Courses</li>
+    <div class="wrap">
+    <input type="text" name="u_id" value="<?php echo $row['user_Id']?>" readonly>
+    <label for="uid">User Id</label>
+    </div>
+    <div class="wrap">
+    <input  type="password" name="pwd" id="pwd" value="<?php echo $row['password']?>" readonly> 
+    <label for="password">Password </label>
+    </div>
+    <div class="wrap">
+    <input type="text" name="name" value="<?php echo $row['name']?>" readonly> 
+    <label for="name">Name </label>
+    </div>
+    <div class="wrap">
+    <input type="text" id="cnc" name="contact_No" value="<?php echo $row['contact_No']?>"readonly >
+    <label for="contact">Contact </label>
+    </div>
+    <div class="wrap">
+    <input type="text" id="adds" name="address" value="<?php echo $row['address']?>"readonly>
+    <label for="address">Address </label>
+    <br>
+    </div>
+    <div class="wrap">
+    <input type="text" name="Branch_name" value="<?php echo $row2['branch_Name']?>" readonly >
+    <label for="branch">Branch Name </label>
+    </div>
+    <div class="wrap">
+     <input type="text" name="branch_address" value="<?php echo $row2['address']?>" readonly> 
+     <label for="br_add">Branch Address </label>
+     </div>
+    <br>
+    <h3>Registered Courses</h3>
     <ul>
 <?php
     while($row3 = mysqli_fetch_assoc($result3)){ 
@@ -114,24 +187,36 @@ if ($result->num_rows > 0 && $result2->num_rows > 0) {
         $result4 = $conn->query($sql4);
         $row4 = $result4->fetch_assoc();
         ?>
-        <li ><a href="course.php?courseIDpass=<?php echo $CourseIDforprofile ?>" target="_parent" ><?php echo $row4['Course_name'];?></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Batch No : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="branch_address" value="<?php echo $row3['batch_No']  ?>" readonly> </li>
+         <li ><a href="course.php?courseIDpass=<?php echo $CourseIDforprofile ?>" target="_parent" ><?php echo $row4['Course_name'];?></a><p>Batch no:<input type="number" name="branch_address" value="<?php echo $row3['batch_No']  ?>" readonly><p> </li><hr>
         <?php   
     }
     ?>
 
     </ul>
 
-    <button type="button" id=changebutton onclick="change()">Edit!</button>
+    <button type="button" class="button btn-1" id=changebutton onclick="change()">Edit!</button>
 
 
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" id="upbutton" font="calibri" value="Submit" hidden ><br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" class="button btn-1" id="upbutton" font="calibri" value="Submit" hidden ><br>
  
 </ul>
 </form>
-	<?php
+    <?php
       
     }
-	?>	
+    ?>  
 </div>
+
+
+
+
+
+</div>
+
+
+
 </body>
 </html>
+<?php
+}
+?>

@@ -2,9 +2,7 @@
 <html>
 <head>
 
-
-<link rel="stylesheet" type="text/css" href="../public/css/component.css">
-<link rel="stylesheet" type="text/css" href="../public/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 </head>	
@@ -12,18 +10,15 @@
 
 
  <div style="text-align:center;">
-     <lable style="font-size:200%;">Menu</lable>
 
         
-    <section class="color-10">
-				<nav class="cl-effect-10">
+				<nav class="menu-btn">
 					<a href="course.php?courseIDpass=<?php echo $_SESSION['Course_ID']; ?>&B_No=<?php echo $_SESSION['batchNo'] ?>" data-hover="Current course"><span>Current Course</span></a>
-					<a href="modules.php" data-hover="Lessons"><span>Lessons</span></a>
-					<a href="quiz.php" data-hover="Quizzes"><span>Quizzes</span></a>
-					<a href="assignment.php" data-hover="Assignments"><span>Assignments</span></a>
-					<a href="studentlist.php" data-hover="Students"><span>Students</span></a>
+					<a href="lecturer_Module/modules.php" data-hover="Lessons"><span>Lessons</span></a>
+					<a href="lecturer_Quiz/quiz_main.php" data-hover="Quizzes"><span>Quizzes</span></a>
+					<a href="lecturer_Assignment/assignment.php" data-hover="Assignments"><span>Assignments</span></a>
+					<a href="lecturer_Students/studentlist.php" data-hover="Students"><span>Students</span></a>
 				</nav>
-			</section>
        
         <!--
         

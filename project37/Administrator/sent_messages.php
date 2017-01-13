@@ -22,7 +22,7 @@
 <meta http-equi="Content-Type" content="text/html; charset=utf-8"/>
 <title>R I T T I</title>
 
-<link rel="stylesheet" type="text/css" href="css/inbox.css">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 <style type="text/css">
 
 /*CSS for white content and black overlay in new news adding*/
@@ -81,7 +81,7 @@
     ?>    
 
 
- <div id=upbanner style="float:bottom;position: relative;width:100%; border:solid 1px #E5E4E2; border-radius: 5px;">
+ <div id=upbanner >
 <?php
  include("user_home.php");
             
@@ -89,12 +89,17 @@
 ?>     
 </div>
 
+<div id="boxbody">
+  
 
-  <div id=breadcrumb style="float:bottom;position: relative;margin-top:0.5%;width:100%; border:solid 1px #E5E4E2; border-radius: 5px;">
-
+  <div id=breadcrumb >
+<ul>
+  
+        <li><a href="admin.php">Home</a></li>
+        <li><a href="">Messaging</a></li>
+  
+</ul>
    
-        <li><a href="user_courses.php">My courses  > &nbsp </a></li>
-        <li><a href=""> Inbox &nbsp </a></li>
     
 
 </div>
@@ -266,9 +271,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 ?>
     <ul>
-	<?php
+  <?php
     while($row= $result->fetch_assoc() ) {
-	?>
+  ?>
     
 <form action="messages.php" method="post">
     
@@ -285,17 +290,22 @@ if ($result->num_rows > 0) {
 </form>    
 
     
-	<?php
+  <?php
       
     }
-	?>	</ul>
-	<?php
+  ?>  </ul>
+  <?php
 }else{
     echo "no messages";
 }
 ?>
 
 
+
+
+
+
+</div>
 
 
 

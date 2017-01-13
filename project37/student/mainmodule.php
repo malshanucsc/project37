@@ -1,5 +1,10 @@
-<link rel="stylesheet" type="text/css" href="css/modulestyle.css">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+
+
+
+
 <h1>&nbsp&nbsp&nbsp&nbsp&nbspLessons</h1>
+<div id="content-list">
 
 <?php
 
@@ -28,7 +33,7 @@ if ($result->num_rows > 0) {
           <?php 
          // if($row2['link']!=''){
             ?>
-            <li id="modulename"><h3><a style="padding-top:5%;" href= "moduleviewmain.php?moduleID=<?php echo $mo_ID; ?> " target="_parent" > <?php echo $row2['module_Title'] ;?></a></h3></li>
+            <li><a href= "student_Module/moduleviewmain.php?moduleID=<?php echo $mo_ID; ?> " target="_parent" > <?php echo $row2['module_Title'] ;?></a></li>
             <?php
             
 
@@ -53,6 +58,7 @@ if ($result->num_rows > 0) {
     <?php
   }
 ?>
+</div>
 <br>
 <br>
 

@@ -26,29 +26,27 @@
 <base target="_self" />
 
 <link rel="icon" href="../image/rittilogo.png" type="image/gif" sizes="16x16">
-<link rel="stylesheet" type="text/css" href="../public/css/component.css">
-<link rel="stylesheet" type="text/css" href="../public/css/normalize.css">
-<link rel="stylesheet" type="text/css" href="css/menustyles.css">
-    <script>
-    window.onload = function() {
-  timer();
-};
-    </script>
+<!-- <link rel="stylesheet" type="text/css" href="../public/css/component.css">
+<link rel="stylesheet" type="text/css" href="../public/css/normalize.css"> -->
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 </head>
-<body style="background-color:#8DA7B0; ">
-<!--
-<iframe width="100%" height="100%" frameborder="0" src="user_home.php" style=""></iframe>
- -->
- <div id=upbanner style="float:bottom;position: relative;width:100%; border:solid 1px #E5E4E2; border-radius: 5px;">
+<body> <div id=upbanner >
 <?php
  include("user_home.php");
 ?>     
 </div>
 
-<div id=breadcrumb style="float:bottom;position: relative;margin-top:0.5%;width:100%; border:solid 1px #E5E4E2; border-radius: 5px;">
+<div id="boxbody" >
 
+
+
+
+<div id="breadcrumb">
+<ul>
    <li><a href="">My courses</a></li>
        
+  
+</ul>
      
 </div>
  
@@ -65,12 +63,12 @@ $result3 = $conn->query($sql3);
 
 
 
-<div id=def style="float:left; width:20%;position:relative;margin-top:0.5%;">
+<div id="menu-block">
 
 
-<h1>My courses</h1>
-<section class="color-10">
-				<nav class="cl-effect-10">
+<!-- <h1 style="text-align:center;">My courses</h1> -->
+<!-- <section class="color-10"> -->
+        <nav class="menu-btn">
                     
 <?php
 
@@ -90,7 +88,7 @@ while($row3 = mysqli_fetch_assoc($result3)){
 ?>
         
           </nav>
-			</section>
+      </section>
    
 
 </div>
@@ -99,30 +97,130 @@ while($row3 = mysqli_fetch_assoc($result3)){
 
 
 
-<div id=def style="float:left; position:relative; width:60%; left: 2.75%; margin-top:0.5%; background-color:#f3f9fe !important;border:solid 1px #E5E4E2; border-radius: 5px;">
+<div id="content-block">
 
-<h1>R I T T I</h1>
-
- <object type="text/html" data="../rr/Ranaviru IT.html" width="98%"  height="950px" style="overflow:auto;border:2px solid #E5E4E2">
-    </object>
-
-</div>
+<style type="text/css">
+  
 
 
+/*img.stretchyfeed {
+width: 100%; /*Tells image to fit to width of parent container*/
+/*height:100%;
+}
+.containerfeed {
+width: 20%;*/ /*Use this to control width of the parent container, hence the image*/
+/*height:19.5vh;
+float:left;
+
+padding-right:2%;
+}
+*/
+
+
+
+
+</style>
 
 
 
 
 
 
-<div  id=msg style=" float:left;position:relative;margin-top:0.5%;left:5.5%;width:11.5%;">
+
+
 
 <?php
-    include("msgnotification.php");
+
+
+include '../db.php';
+$UserIDfordefault=$_SESSION['username'];
+$mainimagesql = "SELECT newsnumber,main_image FROM newsfeed ";
+$resultmainimage = $conn->query($mainimagesql);
+
+if ($resultmainimage->num_rows > 0) {
+
+  while($rowimg= $resultmainimage->fetch_assoc() ) {
 ?>
+<form action="" method="post" >
+<?php
+    $mimgnumber=$rowimg['main_image'];
+    $mimgnumber="image".$mimgnumber;
+    $newsid=$rowimg['newsnumber'];
+    
+
+    $newssql = "SELECT heading,description,$mimgnumber,newsnumber FROM newsfeed WHERE newsnumber='$newsid'";
+    $resultnews = $conn->query($newssql);
+
+      if ($resultnews->num_rows > 0) {
+        ?>    
+        <?php
+        while($rownews= $resultnews->fetch_assoc() ) {
+          ?>
+
+
+
+
+
+
+<input type="hidden" name="newsid"  size="72"  hidden="hidden" value='<?php echo $newsid; ?>'> <br><br>
+
+<div id="newsfeed"  >       
+
+<div class="containerfeed" >     
+<?php  
+    $mimglink=  $rownews[$mimgnumber];  
+  ?>
+   <img id="image2" src='<?php echo $mimglink; ?>' alt="No image" class="stretchyfeed">
+
+
 </div>
 
+
+<div style="float:none;">
+<h4><?php  echo $rownews['heading'];  ?></h4>
+
+<p><?php  echo substr($rownews['description'],0,200).".....";  ?></p>
+<a href="readmore.php?newsnumber=<?php echo $rownews['newsnumber'];?>">Read More</a>
+
+</div>
+
+
+</div>
+</form>
+
+<?php
+
+}
+}
+}
+}
+
+?>
+
+
+
+</div>
+
+
+
 <script src='../public/js/modernizr.custom.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
 
 </body>
 </html>

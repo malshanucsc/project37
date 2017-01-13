@@ -1,86 +1,6 @@
- <?php
-    session_start();
-
-    
-    
-        $now = time(); // Checking the time now when home page starts.
-
-        if (time() - $_SESSION['start'] > 10000) {
-            session_destroy();
-            echo "Your session has expired! <a href='../login.php'>Login here</a>";
-        }
-        else{
-            $_SESSION['start']=time();
-          ?>
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equi="Content-Type" content="text/html; charset=utf-8"/>
-<title> &nbsp&nbsp&nbspR I T T I</title>
-<link rel="stylesheet" type="text/css" href="css/menustyles.css">
-<base target="_self" />
-<style type="text/css">
-
-/*CSS for white content and black overlay in new news adding*/
-
-  .white_content {
-        display: none;
-        position: fixed;
-        top: 8%;
-        left: 25%;
-        width: 50%;
-        height: 84%;
-        padding: 16px;
-        border: 5px solid #1E8449;
-        background-color: white;
-        z-index:1002;
-        overflow: auto;
-
-    }
-
-
-  .black_overlay{
-        display: none;
-        position: fixed;
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        z-index:1001;
-        -moz-opacity: 0.8;
-        opacity:.80;
-        filter: alpha(opacity=80);
-    }
-
-
-
-
-img.stretchy {
-width: 100%; /*Tells image to fit to width of parent container*/
-height:100%;
-}
-.container {
-width: 20%; /*Use this to control width of the parent container, hence the image*/
-height:17.5vh;
-float:left;
-padding-top:2%;
-padding-right:2%;
-}
-
-
-
-
-
-
-
-
-
-
-</style>
-
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 
 
 <script>
@@ -152,10 +72,29 @@ function checkSizeAssignment(upimage,i){
 
 
 
-<link rel="icon" href="../image/rittilogo.png" type="image/gif" sizes="16x16">
+
+<?php
+    session_start();
+
+    
+    
+        $now = time(); // Checking the time now when home page starts.
+
+        if (time() - $_SESSION['start'] > 10000) {
+            session_destroy();
+            echo "Your session has expired! <a href='../login.php'>Login here</a>";
+        }
+        else{
+            $_SESSION['start']=time();
+            $name=$_SESSION['name'];
+            $type=$_SESSION['type'];
+            
+          
 
 
-</head>
+    include('user_home.php');
+    include("header.php")
+    ?>
 
 <?php
 
@@ -230,32 +169,21 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
 
 
-<body style="background-color:#8DA7B0; padding:0;margin:0;">
-<div id=upbanner style="float:bottom;position: relative;width:100%; border:solid 1px #E5E4E2; border-radius: 5px;">
+    <div class="box2"  ><?php
 
-<!--including user home,top banner -->
-<?php
- include("user_home.php");
-?>     
-</div>
-<?php
-include '../db.php';
-
-$u_Id=$_SESSION['username'];
-$sql3 = "SELECT course_Id,batch_No FROM course_follow WHERE user_Id='$u_Id'";
-$result3 = $conn->query($sql3);
-?>
+    include('index.php');
+    ?> 
+    </div>      
 
 
-<!-- div for including menu -->
-<div id=def style="float:left; width:20%;position:relative;margin-top:0.5%;">
+
+    <div>
 
 
-<?php
 
-include("menu.php")
-?>       
-    </div>
+
+
+
 
 
 <!-- div for news feed -->
@@ -454,7 +382,7 @@ if ($resultmainimage->num_rows > 0) {
     $newsid=$rowimg['newsnumber'];
     
 
-    $newssql = "SELECT heading,description,$mimgnumber FROM newsfeed WHERE newsnumber='$newsid'";
+    $newssql = "SELECT heading,description,$mimgnumber,newsnumber FROM newsfeed WHERE newsnumber='$newsid'";
     $resultnews = $conn->query($newssql);
 
       if ($resultnews->num_rows > 0) {
@@ -468,7 +396,7 @@ if ($resultmainimage->num_rows > 0) {
 
 
 
-<input type="text" name="newsid"  size="72" required="required" hidden="hidden" value='<?php echo $newsid; ?>'> <br><br>
+<input type="hidden" name="newsid"  size="72" required="required" hidden="hidden" value='<?php echo $newsid; ?>'> <br><br>
 
 <div style="float:none; border: solid;border-color:  #E5E4E2; height:20.5vh;margin-right:2%;  "  >       
 
@@ -486,6 +414,7 @@ if ($resultmainimage->num_rows > 0) {
 <h4><?php  echo $rownews['heading'];  ?></h4>
 
 <p style=" margin-bottom: 0%;"><?php  echo substr($rownews['description'],0,200).".....";  ?></p>
+<a href="readmore.php?newsnumber=<?php echo $rownews['newsnumber']; ?>" >Read More</a>
 
 <input style="margin-top: -3.2%;margin-left: 91%;" type="submit" id="deletenews" name="deletenews" value="Delete" >
 </div>
@@ -502,74 +431,6 @@ if ($resultmainimage->num_rows > 0) {
 }
 
 ?>
-
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -707,6 +568,28 @@ $deletenews="DELETE FROM newsfeed WHERE newsnumber='$deleteid'  ";
 
 
 ?>
+
+
+
+
+
+
+
+
+
+    </div>
+     
+
+
+ 
+
+
+
+
+
+
+
+
 
 
 

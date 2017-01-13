@@ -1,0 +1,12 @@
+.b{font-size:18px;}
+.div {    margin-bottom:20px; margin-left:auto; margin-right:auto; padding-bottom: 15px; width: 75% ;} 
+.title { float: left; width: 20%; text-align: right; padding-right: 10px;  } 
+.radio-buttons label { float: none;} .submit { text-align: right; float:right;} 
+.sub2{width:60%;}
+.sub3{width:50%;}
+ 
+
+input[type="text"],input[type="number"]
+{
+font-size:100%;
+}

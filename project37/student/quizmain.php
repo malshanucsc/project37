@@ -1,5 +1,8 @@
 
-<link rel="stylesheet" type="text/css" href="css/modulestyle.css">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+
+<div id="content-list">
+
 <h1>&nbsp&nbsp&nbsp&nbsp&nbspQuizzes</h1>
 
 <?php
@@ -29,7 +32,7 @@ if ($result->num_rows > 0) {
           <?php 
          // if($row2['link']!=''){
             ?>
-            <li id="quizname"><h3><a style="padding-top:5%;" href= "qlist.php?modID=<?php echo $mo_ID ?>" target="_parent" > <?php echo $row2['module_Title'] ;?></a></h3></li>
+            <li><a  href= "student_Quiz/qlist.php?modID=<?php echo $mo_ID ?>" target="_parent" > <?php echo $row2['module_Title'] ;?></a></li>
             <?php
             
 
@@ -54,6 +57,8 @@ if ($result->num_rows > 0) {
     <?php
   }
 ?>
+
+</div>
 <br>
 <br>
 

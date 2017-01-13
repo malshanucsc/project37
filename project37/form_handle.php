@@ -55,7 +55,7 @@
                 echo "User not found";
             }
 	}else{
-            echo "You're not signed up. Click below to register!"; 
+                            header ("Location: incorrectpassword.php"); 
         }
 
 	?>

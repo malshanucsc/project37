@@ -1,0 +1,18 @@
+#table{
+	width:95%;
+}
+
+.th{
+	letter-spacing: 0.1em
+	border-bottom: 1px solid red; 
+	border-top: 1px solid #999; 
+	text-align: left;
+	padding: 7px 10px 10px 10px;
+	}
+
+.td{
+	text-align:left;
+	padding: 7px 10px 10px 10px;
+
+}
+tr:hover { background-color: #63e6e5;}

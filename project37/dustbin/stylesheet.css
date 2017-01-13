@@ -1,0 +1,432 @@
+/*main tags and ids
+*/
+body {
+    font-family: "calibri", sans-serif;
+    background-color: white !important;
+}
+
+a{
+	text-decoration: none;
+	color: #898453
+}
+
+li{
+	list-style-type: none;
+}
+
+hr{
+    border: 1px solid #89D097 ;
+}
+
+#boxbody{
+ 
+  overflow: auto;
+  overflow-x: hidden;  
+  border-radius: 0.2%;
+  margin-top: 1%;
+  width: 70%;
+  border: solid 2px #cccccc;
+  margin-left:15%; 
+ 
+}
+#menu-block{
+	float:left; 
+	width:16%;
+	position:relative;
+	margin-top:0.5%;
+}
+
+#content-block{
+	float:left;
+	position: relative; 
+	width:60%; 
+	left: 2.75%; 
+	margin-top:0.5%; 
+	background-color:#f3f9fe !important;
+	border:solid 1px #E5E4E2; 
+	border-radius: 5px;
+}
+
+#assmnt-block{
+	width:95%;
+	margin-left: 2%; 
+	height:40vw;
+	border:solid;
+}
+/*breadcrumb*/
+
+
+#breadcrumb{
+  margin-top: -1.5%;
+}
+#breadcrumb ul {
+    padding: 8px 16px;
+    list-style: none;
+    background-color: #eee;
+}
+#breadcrumb ul li {display: inline;}
+#breadcrumb ul li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+#breadcrumb ul li a {color: green;}
+
+
+/*content lists include assignment, quizzes and lesson lists*/
+
+#content-list li{
+    list-style:none;
+    margin:0 auto;
+    padding-left:4%;
+    margin-left: 25%;
+    height:100% !important;
+    width: 35%;
+    counter-reset: li;
+    list-style: none;
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+
+}
+#content-list li a{
+
+	position: relative;
+	display: block;
+	padding: .4em .4em .4em 2em;
+	*padding: .4em;
+	margin: .5em 0;
+	background: #98b880;
+	color: #444;
+	text-decoration: none;
+	transition: all .2s ease-in-out;
+}
+#content-list li a:hover{
+
+	background: #339252;
+	text-decoration:none;
+	transform: scale(1.1);
+}
+
+
+#content-list li a:before{
+
+	text-align: center;
+
+}
+
+#content-list li a:visited{
+  	color: black!important;
+}
+
+#content-list h4{
+	margin: .1em 0;
+	color:#898453;
+	float: left;
+}
+
+/*news feed*/
+
+#newsfeed{
+	float:none; 
+	border: solid;
+	border-color:  #E5E4E2; 
+	height:20.5vh;
+	margin-right:2%; 
+}
+
+img.stretchyfeed {
+width: 100%; /*Tells image to fit to width of parent container*/
+height:100%;
+}
+.containerfeed {
+width: 20%; /*Use this to control width of the parent container, hence the image*/
+height:19.5vh;
+float:left;
+
+padding-right:2%;
+}
+
+/*pop up window*/
+
+   .white_content {
+        display: none;
+        position: fixed;
+        top: 12.5%;
+        left: 35%;
+        width: 30%;
+        height: 75%;
+        padding: 16px;
+        border: 10px solid #1E8449;
+        background-color: white;
+        z-index:1002;
+        overflow: auto;
+    }
+
+
+  .white_content a{
+  	float: left;
+
+   }
+  .black_overlay{
+        display: none;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index:1001;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+    }
+
+/*quiz popup*/
+
+    .quiz_white_content {
+        display: none;
+        position: fixed;
+        top: 25%;
+        left: 28%;
+        width: 40%;
+        height: 40%;
+        padding: 16px;
+        border: 16px solid #1E8449;
+        background-color: white;
+        z-index:1002;
+        overflow: auto;
+    }
+
+
+  .quiz_black_overlay{
+        display: none;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index:1001;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+    }
+
+/*assignment popup */  
+
+    .assmnt_white_content {
+        display: none;
+        position: fixed;
+        top: 25%;
+        left: 28%;
+        width: 40%;
+        height: 40%;
+        padding: 16px;
+        border: 16px solid #1E8449;
+        background-color: white;
+        z-index:1002;
+        overflow: auto;
+    }
+
+
+  .assmnt_black_overlay{
+        display: none;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index:1001;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+    }
+
+
+/*buttons*/
+
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #189D50;
+  border: none;
+  float: right;
+  color: white;
+  text-align: center;
+  
+  padding: 8px;
+  
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.btn-1{
+font-size: 16px;
+width: 130px;
+color: #FFFFFF;
+}
+
+.button a{
+	color: white;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "+";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 15px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*forms*/
+
+label{
+  font-size: 14px;
+  color: #1E8449;
+  font-weight: bold;
+}
+
+input[type="text"]{
+  width: 90%;
+}
+
+input[type=text],input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #89D097  ;
+    font-size: 15px;
+    display: block;
+}
+input[type="number"]{
+    border: none;
+    padding: 5px;
+}
+
+.formlog { 
+    float:left; 
+    width:60%;margin-left:20% !important ;
+    margin-top:3%;
+    border:solid 1px #E5E4E2;
+    border-radius: 5px; 
+    font-family:calibri;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+.formlog div{
+    clear: both;
+    float: left;
+    width: 100%;
+}
+
+.formlog label{
+    float: right;
+    font-size: 20px;
+    color: #1E8449;
+    font-weight: bold;
+}
+
+/*tables*/
+table {
+color: #333;
+font-family: Helvetica, Arial, sans-serif;
+width: 100%;
+border-collapse:
+collapse; border-spacing: 0;
+}
+
+td, th {
+border: 1px solid green; /* No more visible border */
+height: 30px;
+transition: all 0.3s; /* Simple transition for hover effect */
+}
+
+th {
+background: #8edba6; /* Darken header a bit */
+font-weight: bold;
+}
+
+td {
+background: #FAFAFA;
+/*text-align: center;*/
+}
+
+td a{
+    text-decoration: none;
+    
+}
+/* Cells in even rows (2,4,6...) are one color */
+tr:nth-child(even) td { background: #F1F1F1; }
+
+/* Cells in odd rows (1,3,5...) are another (excludes header cells) */
+tr:nth-child(odd) td { background: #FEFEFE; }
+
+/*tr td:hover { background: #666; color: #FFF; } *//* Hover cell effect! */
+
+#assmnt-tabl table{
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+}
+
+#assmnt-tabl tr:nth-child(even) {background-color: #f2f2f2}
+}
+
+/*performance view*/
+
+
+
+#std_pform table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#std_pform th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+/*tr:nth-child(even){background-color: #DEFCC6     }*/
+
+#std_pform th {
+    background-color: #229954  ;
+    color: white;
+}
+
+#avg{
+  background-color: #C6FCD1  ;
+  color: black;
+}
+
+#std_pform h1{
+  font-size: 30px;
+  color: #084214;
+  text-decoration: none;
+  padding-left: 10px;
+}
+#std_pform h3{
+  color: #084214;
+  padding-left: 10px;
+
+}

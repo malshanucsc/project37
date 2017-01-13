@@ -3,7 +3,7 @@
 <head>
 <meta http-equi="Content-Type" content="text/html; charset=utf-8"/>
 <title>R I T T I</title>
-<link rel="stylesheet" type="text/css" href="css/defaultcoursepage.css">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
 <style type="text/css">
 li{
 
