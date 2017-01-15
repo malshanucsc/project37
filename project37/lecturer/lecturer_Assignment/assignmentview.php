@@ -46,7 +46,7 @@
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
   <script>
   $( function() {
-   // $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker();
   } );
 
 
@@ -247,7 +247,7 @@ if ($result->num_rows > 0) {
 
         ?>
 
-        <form  method="post" action="" >
+        <form  class=profile method="post" action="" >
         <h1>Title</h1>
         <h2><?php echo $row2['assignment_title']?></h2>
 
@@ -382,6 +382,10 @@ echo"<script>window.location.href = 'assignmentviewmain.php?asid=$assign_ID '</s
 if(isset($_POST['deadlinechangebutton'])){
 
   $date=$_POST['datepick'];
+
+
+$date = date("Y-m-d", strtotime($date));
+
     $hr=$_POST['hour'];
     $mi=$_POST['min'];
 

@@ -126,6 +126,8 @@ $batch_No=$_SESSION['batch_No'];
 
 
 <div id="content-block">
+ 
+  
 
 
 <?php
@@ -188,38 +190,36 @@ if ($result->num_rows > 0 && $result2->num_rows > 0) {
 ?>
     
   
-  <form class="formlog" action="" method="post" style="margin-left:140px;">
+  <form class="profile" action="" method="post">
+     <legend><span class="number">1</span> Student Info</legend>
   
   <div class="wrap">
-  <input type="text" name="u_id" value="<?php echo $row['user_Id']?>" readonly>
   <label for="uid">User Id</label>
+  <input type="text" name="u_id" value="<?php echo $row['user_Id']?>" readonly>
   </div>
   <div class="wrap">
+    <label>Name</label> 
   <input type="text" name="name" value="<?php echo $row['name']?>" readonly>
-  <label>Name</label> 
    </div>
   <div class="wrap">
-  <input type="text" id="cnc" name="contact_No" value="<?php echo $row['contact_No']?>"readonly >
   <label>Contact</label>
+  <input type="text" id="cnc" name="contact_No" value="<?php echo $row['contact_No']?>"readonly >
    </div>
   <div class="wrap">
-  <input type="text" id="adds" name="address" value="<?php echo $row['address']?>"readonly>
   <label>Address </label>
+  <input type="text" id="adds" name="address" value="<?php echo $row['address']?>"readonly>
    </div>
-
-
   <br>
     <div class="wrap">
+    <label>Branch Name</label>
   <input type="text" name="Branch_name" value="<?php echo $row2['branch_Name']?>" readonly >
-  <label>Branch Name</label>
    </div>
   <div class="wrap">
-
+<label>Branch Address </label> 
   <input type="text" name="branch_address" value="<?php echo $row2['address']?>" readonly>
-  <label>Branch Address </label> 
    </div>
   <br><br>
-      <h3>Registered Courses</h3>
+      <legend><span class="number">2</span>Registered courses</legend>
     <ul>
 
 <?php
@@ -251,16 +251,16 @@ $row5 = $result5->fetch_assoc();
 
 <button type="button" class="button btn-1" id=changebutton onclick="change()">Add or Change Marks</button>
 
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input class="button btn-1" type="submit" id="upbutton" font="calibri" value="Submit" hidden >
+<input class="button btn-1" type="submit" id="upbutton" font="calibri" value="Submit" hidden >
    
 
 <button type="button" class="button btn-1"><a href="studentperformance.php?stid=<?php echo $stid;?>">Student Performance</a></button>
 
 
 </ul>
-
+<br><br><br>
 </form>
-
+<br>
   <?php
       
     }

@@ -63,11 +63,11 @@ $size = mysqli_num_rows($result);
 if ($size> 0) {
 ?>
 
-<li><a href="lecturer_Message/inbox.php" target="_parent" style="float: left; ">Inbox&nbsp<img height="" style="" src="../image/message2.png"><?php echo "(".$size.")";?><a></li>
+<li><a href="lecturer_Message/inbox.php" target="_parent" >Inbox&nbsp<img height="" style="" src="../image/message2.png"><?php echo "(".$size.")";?><a></li>
 <?php
 }else{
   ?>
-<li><a href="inbox.php" target="_parent">Inbox</a></li>
+<li><a href="lecturer_Message/inbox.php" target="_parent">Inbox</a></li>
 <?php  
 }
 

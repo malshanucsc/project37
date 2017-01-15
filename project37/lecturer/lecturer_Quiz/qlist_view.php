@@ -28,8 +28,7 @@
  
 </style>
 <script type="text/javascript">
-     window.onload = function() {
-  timer();
+ 
 }
 
 
@@ -111,16 +110,60 @@ if (mysqli_num_rows($result1)>0){
 $sql = "SELECT * FROM question join quiz_questions on question.question_Id = quiz_questions.question_Id where quiz_Id = $quizId";
 
 $result = mysqli_query($conn,$sql);
-
+$questioncount=mysqli_num_rows($result);
 if(mysqli_num_rows($result)>0){
 
 
-    echo "Number of Questions in this quiz: " .mysqli_num_rows($result). "<br>";
+    echo "<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspNumber of Questions in this quiz: " .mysqli_num_rows($result). "<br>";
 
     
     ?>
 
+<form method="post">
 
+<input type="submit" name="delete" value="Delete" class="button btn-1">   
+
+
+    
+<?php
+
+$sql9 = "SELECT Published FROM quiz where course_Id=$courseID AND module_Id=$mod_Id AND quiz_Id = $quizId AND $batch_No=$batch_No";
+
+$result9 = mysqli_query($conn,$sql9);
+
+while ($row9 = mysqli_fetch_assoc($result9)) { 
+
+    if($row9['Published']==0){
+
+?>
+        <input type="submit" name = "submit" value="Publish" class="button btn-1">
+<?php
+
+    }else{
+
+
+?>
+        <input type="submit" name = "unpublish" value="Hide" class="button btn-1">
+<?php
+
+
+    }
+
+}
+
+
+?>
+
+
+</form> 
+
+<button type="button" class="button btn-1" ><a href="quizcheck.php?modID=<?php echo $mod_Id ?>&quizId=<?php echo $quizId ?>">Add questions</a></button>
+
+
+
+
+
+<br><br>
     <form action='' method='post'>
     <table cellpadding="1" cellspacing="1" border="1">
     <thead>
@@ -169,7 +212,18 @@ echo "<td><a onclick='javascript:confirmationDelete($(this));return false;' href
 
 else{
     echo "no questions in this quiz";
-    
+    ?>
+  
+    <form method="post">
+
+<input type="submit" name="delete" value="Delete" class="button btn-1">   
+
+<button type="button" class="button btn-1" ><a href="quizcheck.php?modID=<?php echo $mod_Id ?>&quizId=<?php echo $quizId ?>">Add questions</a></button>
+
+</form>
+
+
+    <?php
 }
 
 }
@@ -186,42 +240,183 @@ else{
 </table>
 
 </form>
-<form method="post">
-
-<input type="submit" name="delete" value="Delete" class="button btn-1">   
-<input type="submit" name = "submit" value="Publish" class="button btn-1">
-
-</form> 
 
 
 
-<?php } ?>
+<?php } 
 
- 
 
-<?php
+
         if(isset($_POST['submit'])){
                 
 
-             
-                
 
-                $sql2="UPDATE quiz SET Published='1' WHERE  module_Id='$mod_Id' AND Course_Id='$courseID'  AND quiz_Id='$quizId' ";
-                $sql3 ="UPDATE quiz SET Published='0' WHERE  module_Id='$mod_Id' AND Course_Id='$courseID'  AND quiz_Id!='$quizId' ";
+ if($questioncount>=10){
+
+       
+
+
+                $sql2="UPDATE quiz SET Published='1' WHERE  module_Id='$mod_Id' AND Course_Id='$courseID'  AND quiz_Id='$quizId' and batch_No='$batch_No'";
+                $sql3 ="UPDATE quiz SET Published='0' WHERE  module_Id='$mod_Id' AND Course_Id='$courseID'  AND quiz_Id!='$quizId' and batch_No='$batch_No' ";
+
                 
         
                 if($conn->query($sql2)){
                     if($conn->query($sql3)){
-                        echo "This quiz has been enable for the students";
+                        echo "<script>alert('This quiz has been enable for the students')</script> ";
+
+                        ?>
+                                            <script>
+                        window.location = "qlist_view.php?quizId=<?php echo $quizId ?>&modID=<?php echo $mod_Id?>";  
+                    </script>
+
+<?php
 
                         }else{
                             echo "error";
+                        }
+
+                    }
+                
+
+            $sql4 = "SELECT user_Id FROM course_follow WHERE course_Id='$courseID' AND batch_No='$batch_No'";
+
+            $result4 = $conn->query($sql4);
+
+            if ($result4->num_rows > 0) {
+            ?>
+                  
+              <?php
+              while($row4= $result4->fetch_assoc() ) {
+                $uid=$row4['user_Id'];
+                
+                $sql5="INSERT INTO do_quiz (user_Id,batch_No,course_Id,module_Id) VALUES ('$uid','$batch_No','$courseID','$mod_Id')";
+
+                
+
+                $conn->query($sql5);
+
+
+
+              }
+
+            }
+
+
+
+                }else{
+                    echo'<script>alert("There must be atleast 10 questions in the quiz to publish. Only '.$questioncount.' found");</script>'
+                    ?>
+                    <script>
+                        window.location = "qlist_view.php?quizId=<?php echo $quizId ?>&modID=<?php echo $mod_Id?>";  
+                    </script>
+                <?php
+                }
+             
+
                     }
 
-                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ if(isset($_POST['unpublish'])){
                 
+
+       
+
+
+                $sql2="UPDATE quiz SET Published='0' WHERE  module_Id='$mod_Id' AND Course_Id='$courseID'  AND quiz_Id='$quizId' and batch_No='$batch_No'";
+//                $sql3 ="UPDATE quiz SET Published='0' WHERE  module_Id='$mod_Id' AND Course_Id='$courseID'  AND quiz_Id!='$quizId' and batch_No='$batch_No' ";
+
+                
+        
+               
+                    if($conn->query($sql2)){
+                        echo "<script>alert('This quiz has been hidden from the students')</script>";
+?>
+                                            <script>
+                        window.location = "qlist_view.php?quizId=<?php echo $quizId ?>&modID=<?php echo $mod_Id?>";  
+                    </script>
+<?php
+
+                        }else{
+                            echo "error";
+                        }
+
+                    
+                
+
+            $sql4 = "SELECT user_Id FROM course_follow WHERE course_Id='$courseID' AND batch_No='$batch_No'";
+
+            $result4 = $conn->query($sql4);
+
+            if ($result4->num_rows > 0) {
+            ?>
+                  
+              <?php
+              while($row4= $result4->fetch_assoc() ) {
+                $uid=$row4['user_Id'];
+                
+                $sql5="DELETE FROM do_quiz WHERE user_Id='$uid' AND batch_No='$batch_No' AND course_Id='$courseID' AND module_Id='$mod_Id' ";
+
+                
+
+                $conn->query($sql5);
+
+
+
+              }
+
+            }
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     }
-            
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           if(isset($_POST['delete']))  {
@@ -262,9 +457,6 @@ else{
         
               ?>
     
-<button type="button" class="button btn-1" ><a href="quizcheck.php?modID=<?php echo $mod_Id ?>&quizId=<?php echo $quizId ?>">Add questions</a></button>
-
-
 
 
 

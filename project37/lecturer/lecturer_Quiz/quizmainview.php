@@ -31,14 +31,6 @@ body{
 
 
 <script>
-function ifr(id1,id2){
-  var e2 = document.getElementById(id2);
-  var e = document.getElementById(id1);
-
-  e2.innerHTML = 'Assignments';
-  e.style.display = 'block';
-
-}
 
 function openwin() {
 
@@ -59,7 +51,7 @@ function openwin() {
 ?>     
 </div>
 
-<div id=boxbody >
+<div id="boxbody" >
 
 
 
@@ -74,7 +66,7 @@ function openwin() {
 
   <?php 
 include("db.php");
-   $mo_ID=$_GET['modID'];
+    $mo_ID=$_GET['modID'];
     $sql = "SELECT module_Title FROM module WHERE module_Id='$mo_ID' ";
     $result = mysqli_query($conn,$sql);
     $count =mysqli_fetch_array($result);
@@ -83,18 +75,8 @@ include("db.php");
     ?>
 
 
-<div id=breadcrumb>
+<div id="breadcrumb">
 <?php
-$sql = "SELECT Qname FROM quiz WHERE Course_Id = '$courseID' AND module_Id = '$mo_ID'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) { 
-
-      
-     while($row= $result->fetch_assoc() ) {
-      $qnameforbr = $row['Qname'];
-  
-    }
-  }
 
 ?>
 
@@ -103,7 +85,7 @@ $sql = "SELECT Qname FROM quiz WHERE Course_Id = '$courseID' AND module_Id = '$m
         <li><a href="../user_courses.php">My courses</a></li>
         <li><a href="../course.php?courseIDpass=<?php echo $courseID; ?>&B_No=<?php echo $batch_No ?> "> <?php echo $cname; ?></a></li>
         <li><a href="quiz_main.php"> Quizzes</a></li>
-        <li><a href=""><?php echo $qnameforbr;?></a> </li>
+        <li><a href=""><?php echo $moduletitle;?></a> </li>
         
 
 

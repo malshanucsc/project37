@@ -260,13 +260,13 @@ if ($result->num_rows > 0) {
       }
     }
   }else{
-?>     <h3 style="margin-left:20%; color:red; "> <?php echo"No Lessons published";?></h3><br><?php
+?>     <h3 style="margin-left: 5%;"> <?php echo"No Lessons published";?></h3><br><?php
   }
 ?>
 
 </div>
 <div id="fade" class="black_overlay"></div>
-<div id="light" class="white_content">
+<div id="light" class="module_white_content">
 <?php
 
   function insert($title,$guide,$u_Id,$C_Id,$link,$batch_No){
@@ -311,7 +311,7 @@ window.location.href = "modules.php";
 
     <label>Note</label><br>
 
-    <textarea name="guide" cols="58" rows="8" class="widebox" id="article"></textarea><br><br>
+    <textarea name="guide" cols="56" rows="8" class="widebox" id="article"></textarea><br><br>
     <input class= "button btn-1" type="submit" id="u_button" name="u_button" value="Add" >
 
     </form>
@@ -390,5 +390,6 @@ if($_FILES["file"]["error"] >0){
 </div>
 
 <button type="button"  class="button btn-1" style="margin-left:20%;" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" ><span>Add Lesson</span></button>
+<br>
 <br>
 <br>

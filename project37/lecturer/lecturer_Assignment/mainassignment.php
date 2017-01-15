@@ -270,7 +270,7 @@ if ($result->num_rows > 0) {
       }
     }
   }else{
-    ?> <h3><?php echo"No assignments published";?></h3><br><?php
+    ?> <h3 style="margin-left: 5%;"><?php echo"No assignments published";?></h3><br><?php
   }
 ?>
 
@@ -583,10 +583,11 @@ if(isset($_POST['u_buttonassignment'])){
 
   if ($_FILES['file']['size'] == 0 )
   {
-      
+      $date=$_POST['datepick'];
+$date = date("Y-m-d", strtotime($date));
 
        $link="nolink";
-       insertassign($_POST['assigns'],$_POST['assignment_title'],$_POST['guide'],$_POST['datepick'],$_POST['hour'],$_POST['min'],$user_ID,$courseId,$link,$batch_No);
+       insertassign($_POST['assigns'],$_POST['assignment_title'],$_POST['guide'],$date,$_POST['hour'],$_POST['min'],$user_ID,$courseId,$link,$batch_No);
 
 
   }else{
@@ -613,9 +614,11 @@ if($_FILES["file"]["error"] >0){
 
   $link='../../Assignments/'. $coursename .'/' . $_FILES["file"]["name"];
 
+      $date=$_POST['datepick'];
+$date = date("Y-m-d", strtotime($date));
 
 
-  insertassign($_POST['assigns'],$_POST['assignment_title'],$_POST['guide'],$_POST['datepick'],$_POST['hour'],$_POST['min'],$user_ID,$courseId,$link,$batch_No);
+  insertassign($_POST['assigns'],$_POST['assignment_title'],$_POST['guide'],$date,$_POST['hour'],$_POST['min'],$user_ID,$courseId,$link,$batch_No);
 
 
 
@@ -638,6 +641,7 @@ if($_FILES["file"]["error"] >0){
 
 <a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Cancel</a></div>
 
-<button type="button" class="button btn-1" style="margin-left:20%;" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'" ><span>Add Assignment</span></button>
+<button type="button" class="button btn-1" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'" ><span>Add Assignment</span></button>
 <br>
+<br><br>
 <br>

@@ -508,7 +508,7 @@ if(isset($_POST['deleteasign'])){
 <div id="fade" class="black_overlay"></div>
 
 
-<div id="light" class="white_content">
+<div id="light" class="submissions">
 
 
 
@@ -519,7 +519,7 @@ checking file onsubmit function call -->
     <form enctype="multipart/form-data" method="post" onsubmit="return checkFile();">
 
     <br>
-    <input name="file" type="file" id="fileinput" size="100"><br><hr>
+    <input name="file" type="file" id="fileinput" size="100"><br><br>
 
 
     <button type="submit" id="u_button" name="u_button">Upload the file</button>

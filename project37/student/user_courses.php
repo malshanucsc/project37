@@ -97,36 +97,8 @@ while($row3 = mysqli_fetch_assoc($result3)){
 
 
 
+
 <div id="content-block">
-
-<style type="text/css">
-  
-
-
-/*img.stretchyfeed {
-width: 100%; /*Tells image to fit to width of parent container*/
-/*height:100%;
-}
-.containerfeed {
-width: 20%;*/ /*Use this to control width of the parent container, hence the image*/
-/*height:19.5vh;
-float:left;
-
-padding-right:2%;
-}
-*/
-
-
-
-
-</style>
-
-
-
-
-
-
-
 
 
 <?php
@@ -141,7 +113,7 @@ if ($resultmainimage->num_rows > 0) {
 
   while($rowimg= $resultmainimage->fetch_assoc() ) {
 ?>
-<form action="" method="post" >
+
 <?php
     $mimgnumber=$rowimg['main_image'];
     $mimgnumber="image".$mimgnumber;
@@ -162,32 +134,43 @@ if ($resultmainimage->num_rows > 0) {
 
 
 
-<input type="hidden" name="newsid"  size="72"  hidden="hidden" value='<?php echo $newsid; ?>'> <br><br>
 
-<div id="newsfeed"  >       
+<div id="newsfeed">       
 
-<div class="containerfeed" >     
+<div id="containerfeed" >     
 <?php  
     $mimglink=  $rownews[$mimgnumber];  
   ?>
-   <img id="image2" src='<?php echo $mimglink; ?>' alt="No image" class="stretchyfeed">
+   <img id="image23" src='<?php echo $mimglink; ?>' alt="No image" id="stretchyfeed">
 
 
 </div>
 
 
-<div style="float:none;">
+<div>
+
 <h4><?php  echo $rownews['heading'];  ?></h4>
 
-<p><?php  echo substr($rownews['description'],0,200).".....";  ?></p>
-<a href="readmore.php?newsnumber=<?php echo $rownews['newsnumber'];?>">Read More</a>
-
+<p><?php  echo substr($rownews['description'],0,10).".....";  ?></p>
+<a href="readmore.php?newsnumber=<?php echo $rownews['newsnumber']; ?>" >Read More</a>
 </div>
 
 
 </div>
-</form>
 
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
 <?php
 
 }
@@ -200,7 +183,7 @@ if ($resultmainimage->num_rows > 0) {
 
 
 </div>
-
+   
 
 
 <script src='../public/js/modernizr.custom.js'></script>

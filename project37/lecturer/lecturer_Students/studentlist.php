@@ -21,35 +21,15 @@
 <title>R I T T I</title>
 <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
 <style type="text/css"> 
-    body{
-        margin:0%;
-        padding:0%;
-    }
 
 </style>
 
-
-<script>
-function ifr(id1,id2){
-var e2 = document.getElementById(id2);
-var e = document.getElementById(id1);
-
-e2.innerHTML = 'Assignments';
- e.style.display = 'block';
-
-
-}
-window.onload = function() {
-  timer();
-};
-
-</script>
 
 
 <link rel="icon" href="../../image/rittilogo.png" type="image/gif" sizes="16x16">
 
 </head>
-<body style="background-color:white; ">
+<body>
 
 
   <div id=upbanner >
@@ -94,7 +74,7 @@ $batch_No=$_SESSION['batch_No'];
 <br>
 
 
-<div id="content-list">
+<div id="student-list">
 
 <?php
 
@@ -125,6 +105,8 @@ while($row= $result->fetch_assoc() ) {
 
     ?>
      <li ><a href= "studentview.php?studentID=<?php echo $row2['user_Id']; ?> " target="_parent" > ID &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $row2['user_Id'] ;?><br>Name&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $row2['name'] ;?> </a></li>
+
+
      
     <?php
       

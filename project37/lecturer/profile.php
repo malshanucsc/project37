@@ -42,7 +42,7 @@ window.onload = function() {
 </script>
 <link rel="icon" href="../image/rittilogo.png" type="image/gif" sizes="16x16">
 </head>
-<body style="background-color: white; ">
+<body>
 
 
  <div id=upbanner >
@@ -51,7 +51,7 @@ window.onload = function() {
 ?>     
 </div>
 
-<div id=boxbody >
+<div id="boxbody" >
 
 
 
@@ -68,11 +68,16 @@ if (isset($_SESSION['coursename'])  && isset($_SESSION['Course_ID']) && isset($_
     ?>
 
 <div id="breadcrumb">
-   
+
+    <ul>
+
+
         <li><a href="user_courses.php">My courses  > &nbsp </a></li>
         <li><a href="course.php?courseIDpass=<?php echo $courseID; ?>&B_No=<?php echo $batch_No ?> "> <?php echo $cname; ?> > &nbsp </a></li>
         <li><a href=""> Profile &nbsp </a></li>
     
+    </ul>
+   
 
 </div>
 <?php
@@ -82,8 +87,13 @@ if (isset($_SESSION['coursename'])  && isset($_SESSION['Course_ID']) && isset($_
     ?>
 <div id="breadcrumb">
    
-        <li><a href="user_courses.php">My courses  > &nbsp </a></li>
+   <ul>
+
+
+     <li><a href="user_courses.php">My courses  > &nbsp </a></li>
         <li><a href=""> Profile &nbsp </a></li>
+   
+   </ul>
     
 
 </div>
@@ -146,38 +156,39 @@ $result3 = $conn->query($sql3);
 
 if ($result->num_rows > 0 && $result2->num_rows > 0) {
 ?>
-    <form class="formlog" action="" method="post" style="margin-left:140px;">
+    <form class="profile" action="" method="post">
+    <legend><span class="number">1</span> User Info</legend>
     <div class="wrap">
-    <input type="text" name="u_id" value="<?php echo $row['user_Id']?>" readonly>
     <label for="uid">User Id</label>
+    <input type="text" name="u_id" value="<?php echo $row['user_Id']?>" readonly>
     </div>
     <div class="wrap">
-    <input  type="password" name="pwd" id="pwd" value="<?php echo $row['password']?>" readonly> 
     <label for="password">Password </label>
+    <input  type="password" name="pwd" id="pwd" value="<?php echo $row['password']?>" readonly> 
     </div>
     <div class="wrap">
-    <input type="text" name="name" value="<?php echo $row['name']?>" readonly> 
     <label for="name">Name </label>
+    <input type="text" name="name" value="<?php echo $row['name']?>" readonly> 
     </div>
     <div class="wrap">
-    <input type="text" id="cnc" name="contact_No" value="<?php echo $row['contact_No']?>"readonly >
     <label for="contact">Contact </label>
+    <input type="text" id="cnc" name="contact_No" value="<?php echo $row['contact_No']?>"readonly >
     </div>
     <div class="wrap">
-    <input type="text" id="adds" name="address" value="<?php echo $row['address']?>"readonly>
     <label for="address">Address </label>
+    <input type="text" id="adds" name="address" value="<?php echo $row['address']?>"readonly>
     <br>
     </div>
     <div class="wrap">
-    <input type="text" name="Branch_name" value="<?php echo $row2['branch_Name']?>" readonly >
     <label for="branch">Branch Name </label>
+    <input type="text" name="Branch_name" value="<?php echo $row2['branch_Name']?>" readonly >
     </div>
     <div class="wrap">
+    <label for="br_add">Branch Address </label>
      <input type="text" name="branch_address" value="<?php echo $row2['address']?>" readonly> 
-     <label for="br_add">Branch Address </label>
      </div>
     <br>
-    <h3>Registered Courses</h3>
+   <legend><span class="number">2</span>Registered courses</legend>
     <ul>
 <?php
     while($row3 = mysqli_fetch_assoc($result3)){ 
@@ -187,17 +198,17 @@ if ($result->num_rows > 0 && $result2->num_rows > 0) {
         $result4 = $conn->query($sql4);
         $row4 = $result4->fetch_assoc();
         ?>
-         <li ><a href="course.php?courseIDpass=<?php echo $CourseIDforprofile ?>" target="_parent" ><?php echo $row4['Course_name'];?></a><p>Batch no:<input type="number" name="branch_address" value="<?php echo $row3['batch_No']  ?>" readonly><p> </li><hr>
+         <li ><a href="course.php?courseIDpass=<?php echo $CourseIDforprofile ?>" target="_parent" ><?php echo $row4['Course_name'];?></a><p>Batch no:<input type="number" name="branch_address" value="<?php echo $row3['batch_No']  ?>" readonly><p> </li>
         <?php   
     }
     ?>
 
     </ul>
 
-    <button type="button" class="button btn-1" id=changebutton onclick="change()">Edit!</button>
+    <button type="button" class="button btn-1" id="changebutton" onclick="change()">Edit!</button>
 
 
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" class="button btn-1" id="upbutton" font="calibri" value="Submit" hidden ><br>
+<input type="submit" class="button btn-1" id="upbutton" font="calibri" value="Submit" style=" display:none ;" ><br>
  
 </ul>
 </form>

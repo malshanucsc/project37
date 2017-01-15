@@ -101,10 +101,25 @@ if ($result->num_rows > 0) {
   ?>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <br><h1>Quiz Marks</h1><br>
   
   <?php
-  $sql = "SELECT * FROM do_quiz WHERE course_Id='$courseforPerformance' AND user_ID='$stid'";
+  $sql = "SELECT * FROM do_quiz WHERE course_Id='$courseforPerformance' AND user_Id='$stid' AND batch_No=$batch_No";
   $result = $conn->query($sql);
   $totalquizmark=0;
   $quizcount=0;
@@ -122,15 +137,15 @@ if ($result->num_rows > 0) {
     <?php
     while($row= $result->fetch_assoc() ) {
   
-      $qzId=$row['quiz_Id'];
-      $sql2 = "SELECT * FROM quiz WHERE quiz_id='$qzId'";
+      $modId=$row['module_Id'];
+      $sql2 = "SELECT Qname FROM quiz WHERE Course_Id=$courseforPerformance AND module_Id=$modId AND batch_No=$batch_No AND Published=1";
       $result2 = $conn->query($sql2);
       $row2= $result2->fetch_assoc();
  
       ?>
       <tr>
       
-      <td><?php echo $row2['module']; ?></td>
+      <td><?php echo $row2['Qname']; ?></td>
       <td><?php echo $row['marks']; ?></td>
       </tr>
     
@@ -160,6 +175,35 @@ if ($result->num_rows > 0) {
 <?php
 }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br><h1>Exam Marks</h1><br>
 
 <?php

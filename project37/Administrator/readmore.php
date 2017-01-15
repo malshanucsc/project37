@@ -12,66 +12,61 @@
         else{
             $_SESSION['start']=time();
           ?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
 <meta http-equi="Content-Type" content="text/html; charset=utf-8"/>
-<title>R I T T I</title>
+<title> &nbsp&nbsp&nbsp R I T T I</title>
 <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-<base target="_self" />
-<style type="text/css">
-    
-
-</style>
-
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
+<base target="_self" />
+<style type="text/css">
+
+
+</style>
 <script type="text/javascript" > 
  
-$("#slideshow > div:gt(0)").hide();
+$("#slideshownews > div:gt(0)").hide();
 
 setInterval(function() {
-  $('#slideshow > div:first')
+  $('#slideshownews > div:first')
     .fadeOut(1000)
     .next()
     .fadeIn(1000)
     .end()
-    .appendTo('#slideshow');
+    .appendTo('#slideshownews');
 }, 3000);   
  
  </script>
 
+<link rel="icon" href="../image/rittilogo.png" type="image/gif" sizes="16x16">
 
- 
 
 </head>
-
 <body>
-
-
-
-
  <div id=upbanner >
 <?php
  include("user_home.php");
 ?>     
 </div>
 
-<div id=boxbody style="height:500px">
+<div id=boxbody >
 
-<div id="breadcrumb" > 
 
-   <ul>
-        <li><a href="admin.php">Home</a></li>
-        <li><a href=""> News</a></li>
-    
-   </ul>
-     
-    
 
-</div>
+
+
+
+
+<div id="breadcrumb">
+
+
+<div id="content-block">
+
 
 
 
@@ -95,14 +90,15 @@ setInterval(function() {
 
 
 
-<div id="slideshow">
+
+<div id="slideshownews">
 
 
 
 
 <?php     if( $rownews['image0']!='nolink'){
         ?>
-        <div>                                                    
+        <div id="imgdiv">                                                    
 
     <img id="newsimage" src="<?php echo $rownews['image0']; ?>" alt="No image" >
     </div>
@@ -111,78 +107,92 @@ setInterval(function() {
         
     if( $rownews['image1']!='nolink'){
         ?>
-        <div>
+        <div id="imgdiv">
     <img id="newsimage" src="<?php echo $rownews['image1']; ?>" alt="No image" >
     </div>
 <?php
                                                     }
      if( $rownews['image2']!='nolink'){
         ?>
-        <div>
+        <div id="imgdiv">
     <img id="newsimage" src="<?php echo $rownews['image2']; ?>" alt="No image">
     </div>
 <?php
                                                     }
      if( $rownews['image3']!='nolink'){
         ?>
-        <div>
+        <div id="imgdiv">
     <img id="newsimage" src="<?php echo $rownews['image3']; ?>" alt="No image">
     </div>
 <?php
                                                     }
      if( $rownews['image4']!='nolink'){
         ?>
-        <div>
+        <div id="imgdiv">
     <img id="newsimage" src="<?php echo $rownews['image4']; ?>" alt="No image">
     </div>
 
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-    
 <?php
-                                                    }
-                                                    
+}
 
-
-                                                    
-                                                    
-                                                    ?>
-    
-
+?>
 
 </div>
+
 
 <div id=newsdetail >
-<h1><?php  echo $rownews['heading'];  ?></h1>
+
+<h2>
+<?php  echo $rownews['heading'];  ?>
+   </h2>
 
 <p "><?php echo $rownews['description'];  ?></p>
 
-
-
 </div>
-
 
 <?php
   }
 
 }
-        }
+        
 ?>
+
+
+
+
+
+
+
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
 
 
 
 
 </body>
 </html>
+<?php
+}
+?>
+
+
+
+
 

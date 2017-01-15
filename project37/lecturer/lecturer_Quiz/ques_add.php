@@ -16,13 +16,6 @@
 
 
 
-
-
-
-function renderForm($question, $ans1, $ans2, $ans3, $ans4, $cor_ans, $error)
-
-{
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
@@ -37,37 +30,60 @@ function renderForm($question, $ans1, $ans2, $ans3, $ans4, $cor_ans, $error)
 <body>
 
 
- <div id=upbanner >
+ <div id="upbanner" >
 <?php
+
+include("db.php");
+$cname= $_SESSION['coursename'];
+$courseID=$_SESSION['Course_ID'];
+$batch_No=$_SESSION['batch_No'];
+
  include("user_home.php");
+
+
+    $mo_ID=$_GET['modID'];
+    $sql = "SELECT module_Title FROM module WHERE module_Id='$mo_ID' ";
+    $result = mysqli_query($conn,$sql);
+    $count =mysqli_fetch_array($result);
+    $moduletitle=$count[0];
 ?>     
 </div>
 
-<div id=boxbody >
+<div id="boxbody" >
+
+    <div id="breadcrumb">
+<?php
+
+?>
+
+<ul>
+  
+        <li><a href="../user_courses.php">My courses</a></li>
+        <li><a href="../course.php?courseIDpass=<?php echo $courseID; ?>&B_No=<?php echo $batch_No ?> "> <?php echo $cname; ?></a></li>
+        <li><a href="quiz_main.php"> Quizzes</a></li>
+        <li><a href="quizmainview.php?modID=<?php echo $mo_ID?>" ><?php echo $moduletitle;?></a> </li>
+        <li><a href="">Add new Question</a> </li>
+        
+
+
+</ul>   
+  
+</div>
 
 <div id="menu-block">
 
 <?php
-$courseID=$_SESSION['Course_ID'];
-$batch_No=$_SESSION['batch_No'];
+
   include("menu.php");
+
 ?>
 </div>
+
+
+
+
+
 <div id="content-block">
-
-<?php
-
-// if there are any errors, display them
-
-if ($error != '')
-
-{
-
-echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
-
-}
-
-?>
 
 
 
@@ -75,33 +91,21 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 
 <div>
 
-<strong>Question: *</strong> <input type="text" name="ques" value="<?php echo $question; ?>"/><br/>
-<strong>Answer 1: *</strong> <input type="text" name="ans1" value="<?php echo $ans1; ?>"/><br/>
-<strong>Answer 2: *</strong> <input type="text" name="ans2" value="<?php echo $ans2; ?>"/><br/>
-<strong>Answer 3: *</strong> <input type="text" name="ans3" value="<?php echo $ans3; ?>"/><br/>
-<strong>Answer 4: *</strong> <input type="text" name="ans4" value="<?php echo $ans4; ?>"/><br/>
-<strong>Correct answer: *</strong> <input type="text" name="correct" value="<?php echo $cor_ans; ?>"/><br/>
+<strong>Question: *</strong> <input type="text" name="ques" value=""/><br/>
+<strong>Answer 1: *</strong> <input type="text" name="ans1" value=""/><br/>
+<strong>Answer 2: *</strong> <input type="text" name="ans2" value=""/><br/>
+<strong>Answer 3: *</strong> <input type="text" name="ans3" value=""/><br/>
+<strong>Answer 4: *</strong> <input type="text" name="ans4" value=""/><br/>
+<strong>Correct answer: *</strong> <input type="text" name="correct" value=""/><br/>
 
 <p>* Required</p>
 
-<input type="submit" name="submit" value="Submit">
+<input type="submit" name="Enter" value="Enter">
 
 
 </div>
 
 </form>
-
-
-
-
-</div>
-
-
-
-
-
-
-</div>
 
 
 
@@ -135,11 +139,9 @@ if (isset($_SESSION['coursename'])  && isset($_SESSION['Course_ID']) && isset($_
 	$mod_Id = $_GET['modID'];
 
 
-if (isset($_POST['submit']))
+if (isset($_POST['Enter'])){
 
-{
 
-// get form data, making sure it is valid
 
 $question = $_POST['ques'];
 
@@ -152,49 +154,23 @@ $cor_ans = $_POST['correct'];
 
 
 
-// check to make sure both fields are entered
 
-if ($question == '' || $ans1 == '' || $ans2 == '' || $ans3 == '' || $ans4 == '' || $cor_ans == '' )
-
-{
-
-// generate error message
-
-$error = 'ERROR: Please fill in all required fields!';
-
-
-
-// if either field is blank, display the form again
-
-renderForm($question, $ans1, $ans2, $ans3, $ans4, $cor_ans, $error);
-
-}
-
-else
-
-{
-
-$sql = "INSERT question SET Course_Id = $courseID, module_Id= '$mod_Id',  question_Id='', question = '$question', answer_No = '$cor_ans', answer1='$ans1', answer2='$ans2', answer3='$ans3', answer4='$ans4'";
+$sql = "INSERT into question (Course_Id,module_Id,question_Id,question, answer_No, answer1, answer2, answer3, answer4) 
+values('$courseID','$mod_Id','','$question','$cor_ans','$ans1','$ans2','$ans3','$ans4')";
 
 $result = mysqli_query($conn,$sql);
 
 
+if($result){
+    echo "<script>alert('Question added to question bank')</script>";
 
-header("Location: quizmainview.php?&modID=".$mod_Id);
-
+}else{
+    echo "<script>alert('Failed to insert')</script>";
 }
 
-}
 
-else
 
-// if the form hasn't been submitted, display the form
 
-{
-
-renderForm('','','','','','','');
-
-}
 }
 }
 ?>

@@ -64,7 +64,7 @@ include "db.php";
 <form method="post">
 
 	<?php 
-		$sql = "SELECT quiz_Id, Qname, Published FROM quiz WHERE Course_Id = '$courseID' AND module_Id = '$mod_Id'";
+		$sql = "SELECT quiz_Id, Qname, Published FROM quiz WHERE Course_Id = '$courseID' AND module_Id = '$mod_Id' and batch_No='$batch_No'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) { 
 
@@ -108,16 +108,17 @@ include "db.php";
   <?php
 
 		}
-		}
 		else{
 			echo "No quiz Available";
-		} ?>
+		}
+    } ?>
 	
 
 
 <br><br>
 <button type="button" class="button btn-1" href = "javascript:void(0)" onclick = "document.getElementById('light3').style.display='block';document.getElementById('fade3').style.display='block'" >Create New Quiz</button>
-
+<br>
+<br>
 
 
 
@@ -149,7 +150,7 @@ $quizId = $_POST['qno'];
 $Qname = $_POST['Qname'];
 
 
-$sql2 = "insert into quiz(Course_Id,module_Id,quiz_Id,Qname,Published) values('$courseID','$mod_Id','$quizId','$Qname','')";
+$sql2 = "insert into quiz(Course_Id,module_Id,quiz_Id,batch_No,Qname,Published) values('$courseID','$mod_Id','$quizId','$batch_No','$Qname','')";
 $result2 = mysqli_query($conn,$sql2);
 
 
@@ -205,10 +206,11 @@ else
 
 
 
-<p><a href="ques_add.php?&modID='.$mod_Id. '">Add a new question</a></p>
+<h2><a href="ques_add.php?modID=<?php echo $mod_Id; ?>">Add a new question</a></p></h2>
 
 
-
+<br>
+<br>
 
 
 	</body>	

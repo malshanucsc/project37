@@ -76,7 +76,7 @@ function checkSizeAssignment(upimage,i){
 <?php
     session_start();
 
-    
+$u_Id=$_SESSION['username'];    
     
         $now = time(); // Checking the time now when home page starts.
 
@@ -92,8 +92,6 @@ function checkSizeAssignment(upimage,i){
           
 
 
-    include('user_home.php');
-    include("header.php")
     ?>
 
 <?php
@@ -123,7 +121,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image1,imag
             }
 ?>
 <script>
-            window.location = "http://localhost/proje37/Administrator/admin.php";
+           // window.location = "http://localhost/proje37/Administrator/admin.php";
 </script>
 <?php
 }
@@ -169,15 +167,6 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
 
 
-    <div class="box2"  ><?php
-
-    include('index.php');
-    ?> 
-    </div>      
-
-
-
-    <div>
 
 
 
@@ -185,14 +174,13 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
 
 
-
-<!-- div for news feed -->
-<div id=def style="float:left;position: relative; width:60%; left: 2.75%; margin-top:0.5%; background-color:#f3f9fe !important;border:solid 1px #E5E4E2; border-radius: 5px;">
 
     
 
 
-
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+ 
 
 
 
@@ -220,7 +208,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
 
 
-<button type="button" class="button btn-1" style="margin-left:88%;" href = "javascript:void(0)" onclick = "document.getElementById('newslight').style.display='block';document.getElementById('newsfade').style.display='block'" ><span>Add News</span></button>
+<button type="button" class="button btn-1"  href = "javascript:void(0)" onclick = "document.getElementById('newslight').style.display='block';document.getElementById('newsfade').style.display='block'" ><span>Add News</span></button>
     
 
 
@@ -231,7 +219,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
 
 <!-- div for white area of adding a news -->
-<div id="newslight" class="white_content">
+<div id="newslight" >
 
 
 
@@ -247,7 +235,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 <input type="text" name="newsheading"  size="72" required="required"> <br><br>
 
 <h5>Description</h5>
-<textarea name="description" cols="74" rows="8" class="widebox" id="description"></textarea><br><br>
+<textarea name="description" cols="140" rows="8" class="widebox" id="description"></textarea><br><br>
 
 <p>You can add upto five images each should not exceed 2MB for an image</p>
 
@@ -256,7 +244,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
    <img id="image1" src="" alt="Select image 1" class="stretchy" onclick="$('#addimage1').click();">
    <input type="button" id="btn1" style="display:none;"onclick="$('#image1').attr('src',''); this.style.display='none'; rad1.style.display='none'" value="Remove">
-   <br>
+   
    <input type="radio" name="mainimage" value="0" id="rad1" style="margin-left:45%;display:none; " />
 </div>
 
@@ -267,7 +255,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
    <img id="image2" src="" alt="Select image 2" class="stretchy" onclick="$('#addimage2').click();">
     <input type="button" id="btn2" style="display:none;"onclick="$('#image2').attr('src',''); this.style.display='none';rad2.style.display='none'  " value="Remove">
-    <br>
+   
     <input type="radio" name="mainimage" value="1" id="rad2" style="margin-left:45%; display:none;"/>
 </div>
 
@@ -277,7 +265,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
    <img id="image3" src="" alt="Select image 3" class="stretchy" onclick="$('#addimage3').click();">
     <input type="button" id="btn3" style="display:none;"onclick="$('#image3').attr('src',''); this.style.display='none'; rad3.style.display='none' " value="Remove">
-    <br>
+   
     <input type="radio" name="mainimage" value="2" id="rad3" style="margin-left:45%;display:none;" />
 
 </div>
@@ -289,7 +277,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
    <img id="image4" src="" alt="Select image 4" class="stretchy" onclick="$('#addimage4').click();">
     <input type="button" id="btn4" style="display:none;"onclick="$('#image4').attr('src',''); this.style.display='none'; rad4.style.display='none' " value="Remove">
-    <br>
+   
     <input type="radio" name="mainimage" value="3" id="rad4" style="margin-left:45%;display:none;"/>
 </div>
 
@@ -299,7 +287,7 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
    <img id="image5" src="" alt="Select image 5" class="stretchy" onclick="$('#addimage5').click();">
     <input type="button" id="btn5" style="display:none;"onclick="$('#image5').attr('src',''); this.style.display='none'; rad5.style.display='none'" value="Remove">
-    <br>
+   
     <input type="radio" name="mainimage" value="4" id="rad5" style="margin-left:45%;display:none;" />
 </div>
 
@@ -334,21 +322,6 @@ $sqlinsertnews="INSERT INTO newsfeed (newsnumber,heading,description,image0,imag
 
 <style type="text/css">
   
-
-
-img.stretchyfeed {
-width: 100%; /*Tells image to fit to width of parent container*/
-height:100%;
-
-}
-.containerfeed {
-width: 20%; /*Use this to control width of the parent container, hence the image*/
-height:19.5vh;
-float:left;
-
-padding-right:2%;
-}
-
 
 
 
@@ -398,25 +371,26 @@ if ($resultmainimage->num_rows > 0) {
 
 <input type="hidden" name="newsid"  size="72" required="required" hidden="hidden" value='<?php echo $newsid; ?>'> <br><br>
 
-<div style="float:none; border: solid;border-color:  #E5E4E2; height:20.5vh;margin-right:2%;  "  >       
+<!-- div for news feed -->
+<div id=newsfeed >
 
-<div class="containerfeed" style="">     
+<div id="containerfeed" style="">     
 <?php  
     $mimglink=  $rownews[$mimgnumber];  
   ?>
-   <img id="image2" src='<?php echo $mimglink; ?>' alt="No image" class="stretchyfeed">
+   <img id="image23" src='<?php echo $mimglink; ?>' alt="No image" id="stretchyfeed">
 
 
 </div>
 
 
-<div style="float:none;">
+<div >
 <h4><?php  echo $rownews['heading'];  ?></h4>
 
-<p style=" margin-bottom: 0%;"><?php  echo substr($rownews['description'],0,200).".....";  ?></p>
+<p ><?php  echo substr($rownews['description'],0,200).".....";  ?></p>
 <a href="readmore.php?newsnumber=<?php echo $rownews['newsnumber']; ?>" >Read More</a>
 
-<input style="margin-top: -3.2%;margin-left: 91%;" type="submit" id="deletenews" name="deletenews" value="Delete" >
+<input style="" type="submit" id="deletenews" name="deletenews" value="Delete" >
 </div>
 
 

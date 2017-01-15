@@ -96,43 +96,53 @@ $batch_No=$_GET['B_No'];
 </div>
 
 
-<div id="content-block">
 <?php
 $courseIDfordefalut=$_SESSION['Course_ID'];
 
     // include("defaultcoursepage.php");
 ?>
 <!-- <div id=module> -->
+
+
+<div id="content-block" >
+
 <?php
-
-
   include("mainmodule.php");
 
 ?>
+
+
+</div>
 <!-- </div> -->
-<hr>
+
 <br>
 <!-- <div id=assignment> -->
+<div id="content-block" >
+  
 <?php
 
     include("mainassignment.php");
 ?>
+
+</div>
+<br>
 <!-- </div> -->
+<div id="content-block" >
+
 <?php
 
     include("quiz.php");
 ?>
 
 </div>
-
-
-
-
-
-
-
-
 </div>
+
+
+
+
+
+
+
 
 
 

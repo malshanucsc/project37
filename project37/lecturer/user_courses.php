@@ -132,25 +132,38 @@ if ($resultmainimage->num_rows > 0) {
 
 <div id="newsfeed">       
 
-<div class="containerfeed" >     
+<div id="containerfeed" >     
 <?php  
     $mimglink=  $rownews[$mimgnumber];  
   ?>
-   <img id="image2" src='<?php echo $mimglink; ?>' alt="No image" class="stretchyfeed">
+   <img id="image23" src='<?php echo $mimglink; ?>' alt="No image" id="stretchyfeed">
 
 
 </div>
 
 
-<div style="float:none;">
+<div>
+
 <h4><?php  echo $rownews['heading'];  ?></h4>
 
-<p><?php  echo substr($rownews['description'],0,200).".....";  ?></p>
+<p><?php  echo substr($rownews['description'],0,10).".....";  ?></p>
 <a href="readmore.php?newsnumber=<?php echo $rownews['newsnumber']; ?>" >Read More</a>
 </div>
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <br>
 <?php

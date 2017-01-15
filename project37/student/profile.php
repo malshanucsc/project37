@@ -115,8 +115,7 @@ if (isset($_SESSION['coursename'])  && isset($_SESSION['Course_ID']) && isset($_
 
 
 
-
-
+<div id="profile">
 
 <?php
 include '../db.php';
@@ -151,7 +150,7 @@ if(isset($_POST['name'])){
 
 
 ?>
-<div id="">
+
 
 <?php
 $u_Idforprofile=$_SESSION['username'];
@@ -170,38 +169,39 @@ $result3 = $conn->query($sql3);
 
 if ($result->num_rows > 0 && $result2->num_rows > 0) {
     ?>
-        <form class="formlog" action="" method="post" style="margin-left:140px;">
+        <form class="profile" action="" method="post" >
+    <legend><span class="number">1</span> User Info</legend>
     <div class="wrap">
-    <input type="text" name="u_id" value="<?php echo $row['user_Id']?>" readonly>
     <label for="uid">User Id</label>
+    <input type="text" name="u_id" value="<?php echo $row['user_Id']?>" readonly> 
     </div>
     <div class="wrap">
-    <input  type="password" name="pwd" id="pwd" value="<?php echo $row['password']?>" readonly> 
     <label for="password">Password </label>
+    <input  type="password" name="pwd" id="pwd" value="<?php echo $row['password']?>" readonly> 
     </div>
     <div class="wrap">
-    <input type="text" name="name" value="<?php echo $row['name']?>" readonly> 
     <label for="name">Name </label>
+    <input type="text" name="name" value="<?php echo $row['name']?>" readonly>  
     </div>
     <div class="wrap">
-    <input type="text" id="cnc" name="contact_No" value="<?php echo $row['contact_No']?>"readonly >
     <label for="contact">Contact </label>
+    <input type="text" id="cnc" name="contact_No" value="<?php echo $row['contact_No']?>"readonly >
     </div>
     <div class="wrap">
-    <input type="text" id="adds" name="address" value="<?php echo $row['address']?>"readonly>
     <label for="address">Address </label>
+    <input type="text" id="adds" name="address" value="<?php echo $row['address']?>"readonly>
     <br>
     </div>
     <div class="wrap">
-    <input type="text" name="Branch_name" value="<?php echo $row2['branch_Name']?>" readonly >
     <label for="branch">Branch Name </label>
+    <input type="text" name="Branch_name" value="<?php echo $row2['branch_Name']?>" readonly >
     </div>
     <div class="wrap">
+    <label for="br_add">Branch Address </label>
      <input type="text" name="branch_address" value="<?php echo $row2['address']?>" readonly> 
-     <label for="br_add">Branch Address </label>
      </div>
     <br>
-    <h3>Registered Courses</h3>
+    <legend><span class="number">2</span>Registered courses</legend>
     <ul>
     
     <?php

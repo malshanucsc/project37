@@ -270,7 +270,7 @@ if ($result->num_rows > 0) {
       }
     }
   }else{
-    ?> <h3><?php echo"No assignments published";?></h3><br><?php
+    ?> <h3 style="margin-left: 5%;"><?php echo"No assignments published";?></h3><br><?php
   }
 ?>
 
@@ -638,6 +638,8 @@ if($_FILES["file"]["error"] >0){
 
 <a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Cancel</a></div>
 
-<button type="button" class="button btn-1" style="margin-left:20%;" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'" ><span>Add Assignment</span></button>
+<button type="button" class="button btn-1"  href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'" ><span>Add Assignment</span></button>
+<br>
+<br>
 <br>
 <br>

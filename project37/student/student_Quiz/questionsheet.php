@@ -12,7 +12,7 @@ $mod_Id = $_GET['modID'] ;
 
          <html>
           <head>
-            <title>Answer the questions</title>
+            <title>R I T T I</title>
             <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
 
             <link href="../../style.css" rel="stylesheet" media="screen">
@@ -66,7 +66,7 @@ $mod_Id = $_GET['modID'] ;
                              <div id='question<?php echo $i;?>' class='cont'>
                               <?php echo "Question " . $i. " of 10";?>
                              <p class='questions' id="qname<?php echo $i;?>"> <?php echo $i?>.<?php echo $result['question'];?></p>
-                             <table class="question-table">
+                             <table >
                                <tr>
                                  <td>
                                    
@@ -95,14 +95,14 @@ $mod_Id = $_GET['modID'] ;
                                  </td>
                                  
                                </tr>
-                               <tr>
-                                 <td>
+                              <!--  <tr>
+                                 <td> -->
                                    
                                    <input type="radio" checked='checked' style='display:none' value="5" id='radio1_<?php echo  $result['question_Id'];?>' name='<?php echo $result['question_Id'];?>'/>                                                                      
                                    
-                                 </td>
+                              <!--    </td>
                                  
-                               </tr>
+                               </tr> -->
                              </table>  <br>      
 
                              <button id='<?php echo $i;?>' class='next' type='button'>Next</button>
@@ -114,7 +114,7 @@ $mod_Id = $_GET['modID'] ;
                                 <div id='question<?php echo $i;?>' class='cont'>
                                   <?php echo "Question " . $i. " of 10";?>
                                  <p class='questions' id="qname<?php echo $i;?>"><?php echo $i?>.<?php echo $result['question'];?></p>
-                                 <table class="question-table">
+                                 <table >
                                    <tr>
                                       <td>
                                    
@@ -143,14 +143,14 @@ $mod_Id = $_GET['modID'] ;
                                  </td>
                                      
                                    </tr>
-                                   <tr>
-                                     <td>
+                                   <!-- <tr>
+                                     <td> -->
                                        
                                        <input type="radio" checked='checked' style='display:none' value="5" id='radio1_<?php echo $result['question_Id'];?>' name='<?php echo $result['question_Id'];?>'/>                                                                      
                                        
-                                     </td>
+                                   <!--   </td>
                                      
-                                   </tr>
+                                   </tr> -->
                                  </table>
                                  <br>
                                  <button id='<?php echo $i;?>' class='previous ' type='button'>Previous</button>                    
@@ -166,7 +166,7 @@ $mod_Id = $_GET['modID'] ;
                              <div id='question<?php echo $i;?>' class='cont'>
                               <?php echo "Question " . $i. " of 10";?>
                              <p class='questions' id="qname<?php echo $i;?>"><?php echo $i?>.<?php echo $result['question'];?></p>
-                             <table class="question-table">
+                             <table >
                                <tr>
                                   <td>
                                    
@@ -193,12 +193,13 @@ $mod_Id = $_GET['modID'] ;
                                    <input type="radio" value="4" id='radio1_<?php echo  $result['question_Id'];?>' name='<?php echo $result['question_Id'];?>'/><?php echo htmlspecialchars($result['answer4']);?>
                                    
                                  </td>
+                               </tr>
                                    
                                    <input type="radio" checked='checked' style='display:none' value="5" id='radio1_<?php echo $result['question_Id'];?>' name='<?php echo $result['question_Id'];?>'/>                                                                      
                                    
-                                 </td>
+                               <!--   </td>
                                  
-                               </tr>
+                               </tr> -->
                              </table>
                              <br>
                              

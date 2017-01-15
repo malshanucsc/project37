@@ -49,13 +49,21 @@ if(!empty($_SESSION['name'] )){
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Quiz App</title>
+        <head>
+       <title>R I T T I</title>
         <link href="../../style.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
 
     </head>
     <body>
+
+      <div id=upbanner >
+<?php
+ include("user_home.php");
+?>     
+</div>
+
+<div id=boxbody >
        
         <div class="result-container">
 
@@ -79,7 +87,7 @@ if(!empty($_SESSION['name'] )){
               <td>Score </td><td><span class="answer"><?php echo $score;?></span></td> 
               </tr>    
               </table>              
-           
+           <br>
         <button class="button btn-1"><a href="qlist.php?modID=<?php echo $mod_Id;?>">Back</a></button>
         </div>
     </body>

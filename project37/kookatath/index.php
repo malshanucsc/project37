@@ -31,7 +31,26 @@ setInterval(function() {
 
 <body>
 
+	<style>
+/*#vcontainer {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+#hcontainer {
 
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+#content {
+	padding: 10px 10px 10px 10px;
+  display: inline-block;
+  border: lightGray 1px solid;
+ 
+  text-align: left;*/
+}
+</style>
 <body>
   <div id="nav1"> 
   	<h1><a href="index.php">E-Force</a></h1>
@@ -64,9 +83,6 @@ setInterval(function() {
         <img src="eflogo.png">
       </div>       -->
 
-<div id="logo">
-  <img src="rittilogo.png" class="expand">
-</div>
 
 
 <div id="slideshowindex">
@@ -88,6 +104,10 @@ setInterval(function() {
 
     <img id="newsimage" src="img/03.jpg" alt="No image" >
     </div>
+        <div id=imgdiv>                                                    
+
+    <img id="newsimage" src="img/04.jpg" alt="No image" >
+    </div>
 
         <div id=imgdiv>                                          
 
@@ -97,9 +117,8 @@ setInterval(function() {
 
 </div>
 
-<div id="logo2">
-  <img src="eflogo.png" class="expand">
-</div>
+
+
 
 
 
@@ -137,17 +156,15 @@ setInterval(function() {
 
 <div id="light" class="loginwhite_content">
 
-
-  <form class="profile" action="form_handle.php" method="post">
+  <form class="formlog" action="form_handle.php" method="post">
   <h1 align="center" font ="calibri" style="color:white;">Log in</h1>
-  <h2 >Username  :</h2>
-  <input font-size="22pt" type="text" name="fname" ><br>
-    <h2>Password  :</h2>
-    <input type="password" name="pwd" ><br><br>
-  <input type="submit" font="calibri" value="Log in" ><br><br>
-<a href="forget_password.php">Forget Password ?</a>
+  <h2 style="width:90%; margin-left:5%; color:white;">Username  :</h2>
+  <input font-size="22pt" type="text" name="fname" style="width:50%; margin-left:5%;"><br>
+    <h2 style="width:90%; margin-left:5%;color:white;">Password  :</h2>
+    <input type="password" name="pwd" style="width:50%;  margin-left:5%;"><br><br>
+  <input type="submit" font="calibri" value="Log in" style="width:20%;margin-left:5%;"><br><br>
+<a style="width:30%;margin-left:5%;" href="forget_password.php">Forget Password ?</a>
 </form>
-
 
 <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Cancel</a></div>
 
